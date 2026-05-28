@@ -32,11 +32,9 @@ export default function RelatoriosAdmin() {
     },
     servicosMaisSolicitados: [],
     clientesMaisAtivos: []
-  });
-
-  useEffect(() => {
-    carregarRelatorio();
-  }, []);
+  });useEffect(() => {
+  carregarRelatorio();
+}, [carregarRelatorio]);
 
   const carregarRelatorio = async () => {
     setLoading(true);
