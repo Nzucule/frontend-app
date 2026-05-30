@@ -150,7 +150,7 @@
   justify-content: center;
 }
 
-.social-link i {
+.social-link svg {
   font-size: 1.2rem;
 }
 
@@ -367,4 +367,21 @@
   .mapa-image {
     height: 300px;
   }
+}
+.redes-sociais,
+.social-links,
+.social-link {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+.social-link svg {
+  font-size: 1.3rem !important;
+  color: white !important;
+}
+
+.social-links {
+  background: transparent !important;
 }
