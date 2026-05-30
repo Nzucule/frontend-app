@@ -8,36 +8,41 @@ export function AuthProvider({ children }) {
 
   // Carrega usuário do localStorage quando o app inicia
   useEffect(() => {
-    const userData = localStorage.getItem("user");
+  const token = localStorage.getItem("token");
 
-    if (userData) {
-      setUser(JSON.parse(userData));
-    }
-  }, []);
+  if (!token) return;
 
+  api.get("/me", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+  .then((res) => {
+    setUser(res.data.user);
+  })
+  .catch(() => {
+    localStorage.clear();
+    setUser(null);
+  });
+}, []);
   // LOGIN
   const login = async (email, password) => {
-    const res = await api.post("/login", { email, password });
+  const res = await api.post("/login", { email, password });
 
-    const usuario = res.data.user;
-    const token = res.data.token;
+  const usuario = res.data.user;
+  const token = res.data.token;
 
-    // salvar no localStorage
-    localStorage.setItem("token", token);
-    localStorage.setItem("user", JSON.stringify(usuario));
+  localStorage.setItem("token", token);
 
-    // salvar no estado global
-    setUser(usuario);
+  setUser(usuario);
 
-    return usuario;
-  };
-
+  return usuario;
+};
   // LOGOUT
-  const logout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    setUser(null);
-  };
+const logout = () => {
+  localStorage.clear();
+  setUser(null);
+};
 
   return (
     <AuthContext.Provider

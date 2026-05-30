@@ -32,10 +32,7 @@ export default function RelatoriosAdmin() {
     },
     servicosMaisSolicitados: [],
     clientesMaisAtivos: []
-  });useEffect(() => {
-  carregarRelatorio();
-}, [carregarRelatorio]);
-
+  });
   const carregarRelatorio = async () => {
     setLoading(true);
     try {
@@ -49,6 +46,9 @@ export default function RelatoriosAdmin() {
       const agendamentos = agendamentosRes.data || [];
       const clientes = clientesRes.data || [];
       const servicos = servicosRes.data || [];
+useEffect(() => {
+  carregarRelatorio();
+}, [carregarRelatorio]);
 
       // Filtrar por período
       let agendamentosFiltrados = agendamentos;

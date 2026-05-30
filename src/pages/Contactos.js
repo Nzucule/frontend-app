@@ -93,12 +93,13 @@ export default function Contactos() {
                   <a href="https://facebook.com/allpestprotect/" className="social-link facebook" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-facebook-f"></i> Facebook
                   </a>
-                  <a href="https://instagram.com/apppestprotect" className="social-link instagram" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.instagram.com/appallpestprotect/" className="social-link instagram" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-instagram"></i> Instagram
                   </a>
                   <a href="https://wa.me/258873830003" className="social-link whatsapp" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-whatsapp"></i> WhatsApp
                   </a>
+                  
                 </div>
               </div>
             </div>
