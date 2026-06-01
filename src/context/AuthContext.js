@@ -7,7 +7,7 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Carregar usuário ao iniciar app
+  // Carregar sessão ao iniciar app
   useEffect(() => {
     const token = localStorage.getItem("token");
 
@@ -24,9 +24,12 @@ export function AuthProvider({ children }) {
     .then((res) => {
       setUser(res.data.user);
     })
-    .catch(() => {
-      localStorage.removeItem("token");
-      setUser(null);
+    .catch((err) => {
+      // Só remove token se for inválido (401)
+      if (err.response?.status === 401) {
+        localStorage.removeItem("token");
+        setUser(null);
+      }
     })
     .finally(() => {
       setLoading(false);

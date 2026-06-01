@@ -33,6 +33,7 @@ export default function RelatoriosAdmin() {
     servicosMaisSolicitados: [],
     clientesMaisAtivos: []
   });
+  
   const carregarRelatorio = async () => {
     setLoading(true);
     try {
@@ -46,9 +47,6 @@ export default function RelatoriosAdmin() {
       const agendamentos = agendamentosRes.data || [];
       const clientes = clientesRes.data || [];
       const servicos = servicosRes.data || [];
-useEffect(() => {
-  carregarRelatorio();
-}, [carregarRelatorio]);
 
       // Filtrar por período
       let agendamentosFiltrados = agendamentos;
@@ -84,6 +82,7 @@ useEffect(() => {
             }
             break;
         }
+        
       }
 
       // Filtrar por status
@@ -148,6 +147,9 @@ useEffect(() => {
       setLoading(false);
     }
   };
+  useEffect(() => {
+  carregarRelatorio();
+}, []);
 
   const formatarData = (data) => {
     return new Date(data + 'T00:00:00').toLocaleDateString('pt-BR');

@@ -3,12 +3,13 @@ import "../styles/Sobre.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import imagem from "../img/job.jpg";
-
+import { FaBullseye, FaEye, FaBalanceScale, FaUsers, FaChartLine } from "react-icons/fa";
 // Importe suas imagens aqui (exemplo - ajuste os caminhos conforme suas pastas)
 // Técnico 1
-import tecnico1_foto2 from "../img/imagem4.jpg";
-import tecnico1_foto3 from "../img/desraterizacao.webp";
-import castrodire from "../img/castrodire.jpg";
+import yaya from "../img/yaya.png";
+import loto from "../img/loto.png";
+import geniel from "../img/geniel.png";
+import edm from "../img/edm.png";
 
 // Técnico 2
 /*import tecnico1_foto1 from "../img/imagem1.jpg";
@@ -26,24 +27,31 @@ export default function Sobre() {
   const equipe = [
     {
       id: 1,
-      nome: "Castro Zavale",
-      cargo: "Diretor",
+      nome: "Premier loto",
+      cargo: "Desinfeção e Controlo de Pragas",
       //especialidade: "Controlo de Pragas",
-      imagens: [castrodire]
+      imagens: [loto]
     },
     {
       id: 2,
-      //nome: "Maria Silva",
-      cargo: "Técnica Especialista",
-      especialidade: "Desinfestação",
-      imagens: [tecnico1_foto2]
+      nome: "Geniel",
+      cargo: "Limpeza Geral",
+      //especialidade: "Desinfestação",
+      imagens: [geniel]
     },
     {
       id: 3,
-      //nome: "João Santos",
-      cargo: "Técnico de Campo",
-      especialidade: "Controlo de Roedores",
-      imagens: [tecnico1_foto3]
+      nome: "Mercearia YAYA",
+      cargo: "Controlo de Pragas",
+      //especialidade: "Controlo de Roedores",
+      imagens: [yaya]
+    },
+    {
+      id: 4,
+      nome: "Electricidade de Moçambique",
+      cargo: "Controlo de Pragas",
+      //especialidade: "Controlo de Roedores",
+      imagens: [edm]
     }
   ];
 
@@ -65,48 +73,20 @@ export default function Sobre() {
           <div className="historia-content">
             <div className="historia-text">
               <h2>Nossa História</h2>
-              <p>
-               A <strong>APP – All Pest Protect, Lda.,</strong> é uma empresa moçambicana constituída 
-               nas entidades legais competentes, com o NUIT nº 401738517, situada
-                na Av. Maguiguana, nº. 1742, R/C - Cidade de Maputo. Operamos no mercado
-                 nacional desde 2022, nas áreas de Fumigação, Controlo Integrado de Pragas
-                  e Limpeza com o propósito de prestar apoio à empresas e singulares através
-                   do uso e aplicação de técnicas e modalidades específicas da área.
-                   A nossa visão é ser, a nível nacional, o maior provedor de serviços
-                    de controlo de pragas, Desinfeção e limpeza. Para isso, introduzimos 
-                    treinamentos e capacitações periódicas para o nosso pessoal técnico e garantimos
-                     o dinamismo e qualidade em todos os serviços prestados. O lema é: Sua vida Longe
-                      de Pragas!
-                      <strong>CONTEXTO DA COVID 19</strong>
-                     Em tempos de pandemia (Coronavírus), a Higienização direcionada das instalações, 
-                     fazendo o uso de produtos desinfetantes em todo o processo de limpeza constitui um
-                      requisito básico no combate a Pandemia.
-                      Através do uso e aplicação de técnicas e modalidades específicas no que concerne ao 
-                      controlo de pragas, Higienização e Limpeza, a <strong>APP – All Pest Protect, Lda.,</strong>
-                       desempenhou um papelpreponderante no controlo e combate a Covid 19 desde que o surto 
-                       deste vírus foi então detectado no solo pátrio.
+             <p>
+A <strong>APP – All Pest Protect, Lda.</strong> é uma empresa moçambicana 
+legalmente constituída, com NUIT nº 401738517, localizada na Av. Maguiguana,
+ nº 1742, R/C, Cidade de Maputo. Atua desde 2022 no mercado nacional nas áreas de fumigação, 
+ controlo integrado de pragas e limpeza.
 
-                      Somos uma empresa Nacional com departamentos técnicos e administrativos, constituído
-                       por profissionais experientes,
-                       especializados em diversas áreas nas faculdades Nacionais e Internacionais. O nosso objectivo é
-                        beneficiar a vossa instituição apostando na qualidade de serviços diversos e na sua maior 
-                        satisfação em todas as áreas em que estamos capacitados.
-                      A APP - All Pest Protect é constituída por técnicos formados em diversas áreas que auxiliam em 
-                      aspectos de estética e inovação dos espaços, sempre que se justificar. As nossas intervenções cingem-se,
-                       para além do Controlo pontual e integrado de Pragas, no seguinte (espaços comuns): Assistência preventiva 
-                       contra todo tipo de pragas; Ideias para colocação de equipamento estratégico para melhor resultado na extinção das 
-                       pragas invasoras. Neste contexto, o nosso lema é: Bem-estar, Conforto e Ambiente.
-                     O quadro técnico da APP - ALL PEST PROTECT, LDA. é composto por profissionais 
-                     altamente qualificados e com experiência em controlo de pragas, Conservação de 
-                     espaços e edifícios das mais diversas tipologias, trabalhando com parâmetros de
-                      alto padrão, nossos colaboradores são muito disciplinados durante a execução de 
-                      suas tarefas e sempre buscando melhorias e melhores práticas.
+A empresa tem como objetivo oferecer serviços de qualidade a empresas e particulares,
+ utilizando técnicas especializadas. Durante a pandemia da COVID-19, destacou-se na 
+ higienização de espaços, contribuindo para o combate ao vírus no país.
 
-
-
-
-
-              </p>
+Conta com uma equipa técnica qualificada e investe continuamente na formação 
+dos seus profissionais, garantindo serviços eficientes. A sua visão é tornar-se líder
+ nacional no setor, promovendo bem-estar, conforto e ambientes livres de pragas.
+</p>
             </div>
             <div className="historia-image">
               <div className="image-container">
@@ -122,47 +102,54 @@ export default function Sobre() {
 
       {/* Missão, Visão e Valores */}
       <section className="nossa-missao">
-        <div className="container">
-          <div className="missao-grid">
-            <div className="missao-card">
-              <div className="missao-icon"></div>
-              <h3>Missão</h3>
-              <p>
-                Prestar apoio a empresas e singulares na prevenção e controle
-                sistemático de pragas e limpeza, através de soluções inovadoras
-                e eficazes, garantindo segurança e bem-estar.
-              </p>
-            </div>
-            <div className="missao-card">
-              <div className="missao-icon"></div>
-              <h3>Visão</h3>
-              <p>
-                Ser referência no setor de controle de pragas e limpeza,
-                reconhecida pela qualidade dos serviços, ética profissional e
-                contribuição à saúde pública.
-              </p>
-            </div>
-            <div className="missao-card">
-              <div className="missao-icon"></div>
-              <h3>Valores</h3>
-              <p>
-                • Qualidade e Excelência
-                <br />
-                • Ética Profissional
-                <br />
-                • Responsabilidade Ambiental e Social
-                <br />• Dinamismo e Proatividade
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+  <div className="container">
+    <div className="missao-grid">
 
+      <div className="missao-card">
+        <div className="missao-icon">
+          <FaBullseye />
+        </div>
+        <h3>Missão</h3>
+        <p>
+          Prestar apoio a empresas e singulares na prevenção e controle
+          sistemático de pragas e limpeza, através de soluções inovadoras
+          e eficazes, garantindo segurança e bem-estar.
+        </p>
+      </div>
+
+      <div className="missao-card">
+        <div className="missao-icon">
+          <FaEye />
+        </div>
+        <h3>Visão</h3>
+        <p>
+          Ser referência no setor de controle de pragas e limpeza,
+          reconhecida pela qualidade dos serviços, ética profissional e
+          contribuição à saúde pública.
+        </p>
+      </div>
+
+      <div className="missao-card">
+        <div className="missao-icon">
+          <FaBalanceScale />
+        </div>
+        <h3>Valores</h3>
+        <p>
+          • Qualidade e Excelência<br />
+          • Ética Profissional<br />
+          • Responsabilidade Ambiental e Social<br />
+          • Dinamismo e Proatividade
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
       
       {/* Equipe Técnica - Com 1 imagem por técnico */}
       <section className="nossa-equipe">
         <div className="container">
-          <h2>Nossa Equipe Técnica</h2>
+          <h2>Quem Já Trabalhou Connosco </h2>
 
           <div className="equipe-grid">
             {equipe.map((membro) => (
@@ -186,28 +173,36 @@ export default function Sobre() {
 
       {/* Estatísticas */}
       <section className="estatisticas">
-        <div className="container">
-          <div className="stats-grid">
-            <div className="stat-item">
-              <strong>2020</strong>
-              <span>Ano da Constituiçao</span>
-            </div>
-            <div className="stat-item">
-              <strong>1000+</strong>
-              <span>Clientes Atendidos</span>
-            </div>
-            <div className="stat-item">
-              <strong>+6</strong>
-              <span>Anos de Experiência</span>
-            </div>
-            <div className="stat-item">
-              <strong>24/7</strong>
-              <span>Suporte ao Cliente</span>
-            </div>
-          </div>
-        </div>
-      </section>
+  <div className="container">
+    <div className="stats-grid">
 
+      <div className="stat-item">
+        <FaChartLine className="stat-icon" />
+        <strong>2020</strong>
+        <span>Ano da Constituição</span>
+      </div>
+
+      <div className="stat-item">
+        <FaUsers className="stat-icon" />
+        <strong>1000+</strong>
+        <span>Clientes Atendidos</span>
+      </div>
+
+      <div className="stat-item">
+        <FaChartLine className="stat-icon" />
+        <strong>+6</strong>
+        <span>Anos de Experiência</span>
+      </div>
+
+      <div className="stat-item">
+        <FaUsers className="stat-icon" />
+        <strong>24/7</strong>
+        <span>Suporte ao Cliente</span>
+      </div>
+
+    </div>
+  </div>
+</section>
       <Footer />
     </>
   );

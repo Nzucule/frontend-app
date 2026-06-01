@@ -94,11 +94,24 @@ export default function Contactos() {
               </div>
 
               {/* REDES SOCIAIS */}
-              <div className="redes-sociais">
+              <div
+  className="redes-sociais"
+  style={{
+    display: "block",
+    visibility: "visible",
+    opacity: 1
+  }}
+>
                 <h3>Siga-nos</h3>
 
-                <div className="social-links">
-
+               <div
+  className="social-links"
+  style={{
+    display: "flex",
+    visibility: "visible",
+    opacity: 1
+  }}
+>
                   <a
                     href="https://facebook.com/allpestprotect/"
                     className="social-link facebook"

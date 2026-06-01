@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
-
+import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="footer">
@@ -42,6 +42,42 @@ export default function Footer() {
             <li>www.appmoz.co.mz</li>
           </ul>
         </div>
+        <div className="footer-redes">
+  <h3>Siga-nos</h3>
+
+  <div className="footer-social-links">
+
+    <a
+      href="https://facebook.com/allpestprotect/"
+      className="footer-social-link facebook"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <FaFacebookF /> Facebook
+    </a>
+
+    <a
+      href="https://www.instagram.com/appallpestprotect/"
+      className="footer-social-link instagram"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <FaInstagram /> Instagram
+    </a>
+
+    <a
+      href="https://wa.me/258873830003"
+      className="footer-social-link whatsapp"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <FaWhatsapp /> WhatsApp
+    </a>
+
+  </div>
+</div>
+                    
+        
       </div>
       
       <div className="footer-bottom">

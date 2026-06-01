@@ -129,3 +129,31 @@
     margin-bottom: 0.5rem;
   }
 }
+
+.footer-social-links{
+  display:flex;
+  gap:10px;
+  margin-top:10px;
+}
+
+.footer-social-link{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 15px;
+  border-radius:8px;
+  color:white;
+  text-decoration:none;
+}
+
+.footer-social-link.facebook{
+  background:#1877f2;
+}
+
+.footer-social-link.instagram{
+  background:#e1306c;
+}
+
+.footer-social-link.whatsapp{
+  background:#25d366;
+}

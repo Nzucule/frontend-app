@@ -11,8 +11,26 @@
   z-index: 1000;
   display: flex;
   flex-direction: column;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.3) transparent;
 }
 
+/* =========================
+   SCROLLBAR (Chrome)
+========================= */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
+/* =========================
+   HEADER
+========================= */
 .sidebar-header {
   padding: 30px 20px 20px;
   text-align: center;
@@ -32,6 +50,9 @@
   opacity: 0.9;
 }
 
+/* =========================
+   NAV
+========================= */
 .sidebar-nav {
   flex: 1;
   padding: 20px 15px;
@@ -66,12 +87,18 @@
   width: 25px;
 }
 
+/* =========================
+   DIVIDER
+========================= */
 .sidebar-divider {
   height: 1px;
   background: rgba(255,255,255,0.1);
   margin: 20px 0;
 }
 
+/* =========================
+   FOOTER
+========================= */
 .sidebar-footer {
   padding: 20px;
   text-align: center;
@@ -80,14 +107,59 @@
   border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Mobile */
+/* =========================
+   OVERLAY (MOBILE)
+========================= */
+.sidebar-overlay {
+  display: none;
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 240px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 900px) {
   .sidebar {
     transform: translateX(-100%);
+    width: 260px;
   }
 
   .sidebar.open {
     transform: translateX(0);
-    box-shadow: 2px 0 20px rgba(0,0,0,0.3);
+    box-shadow: 2px 0 25px rgba(0,0,0,0.4);
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 85%;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .sidebar-nav a {
+    padding: 10px 12px;
+    font-size: 0.95rem;
   }
 }
