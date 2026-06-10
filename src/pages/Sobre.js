@@ -10,6 +10,8 @@ import yaya from "../img/yaya.png";
 import loto from "../img/loto.png";
 import geniel from "../img/geniel.png";
 import edm from "../img/edm.png";
+import apiex from "../img/apiex.jpeg"
+import neopac from "../img/neopac.jpeg"
 
 // Técnico 2
 /*import tecnico1_foto1 from "../img/imagem1.jpg";
@@ -52,6 +54,20 @@ export default function Sobre() {
       cargo: "Controlo de Pragas",
       //especialidade: "Controlo de Roedores",
       imagens: [edm]
+    },
+     {
+      id: 5,
+      nome: "APIEX - AGENCIA Para Promoção de Investimentos e Expertação, I.P",
+      cargo: "Controlo de Pragas",
+      //especialidade: "Controlo de Roedores",
+      imagens: [apiex]
+    },
+     {
+      id: 6,
+      nome: " NEOPAC PLUS, LDA",
+      cargo: "Controlo de Pragas",
+      //especialidade: "Controlo de Roedores",
+      imagens: [neopac]
     }
   ];
 
@@ -63,7 +79,7 @@ export default function Sobre() {
       <div className="sobre-banner">
         <div className="container">
           <h1>Sobre a APP All Pest Protect</h1>
-          <p>Proteção completa contra pragas desde 2020</p>
+          <p>Proteção completa contra pragas desde 2022</p>
         </div>
       </div>
 
@@ -72,20 +88,15 @@ export default function Sobre() {
         <div className="container">
           <div className="historia-content">
             <div className="historia-text">
-              <h2>Nossa História</h2>
-             <p>
-A <strong>APP – All Pest Protect, Lda.</strong> é uma empresa moçambicana 
-legalmente constituída, com NUIT nº 401738517, localizada na Av. Maguiguana,
- nº 1742, R/C, Cidade de Maputo. Atua desde 2022 no mercado nacional nas áreas de fumigação, 
- controlo integrado de pragas e limpeza.
-
-A empresa tem como objetivo oferecer serviços de qualidade a empresas e particulares,
- utilizando técnicas especializadas. Durante a pandemia da COVID-19, destacou-se na 
- higienização de espaços, contribuindo para o combate ao vírus no país.
-
-Conta com uma equipa técnica qualificada e investe continuamente na formação 
-dos seus profissionais, garantindo serviços eficientes. A sua visão é tornar-se líder
- nacional no setor, promovendo bem-estar, conforto e ambientes livres de pragas.
+              <h2>Sobre Nós</h2>
+          <p>
+Somos uma empresa moçambicana sedeada na Cidade de Maputo, presentes no mercado desde 2022 
+actuando nas áreas de fumigação, controlo integrado de pragas e limpeza. Focamo-nos na prestação 
+de serviços de qualidade, utilizando técnicas modernas e especializadas. Contamos com uma equipa 
+técnica qualificada e investimos continuamente na formação dos nossos profissionais para garantir aos
+ clientes e público em geral serviços eficientes e cada vez mais modernizados. A nossa visão é ser líder
+  nacional no setor, promovendo bem-estar, conforto e ambientes livres de pragas.bem-estar, conforto e 
+  ambientes livres de pragas.
 </p>
             </div>
             <div className="historia-image">
