@@ -27,16 +27,11 @@ function Login() {
       localStorage.setItem("user", JSON.stringify(user));
 
       // Redirecionar por perfil
-      switch (user.role) {
-        case "cliente":
-          navigate("/cliente/dashboard");
-          break;
-        case "admin":
-          navigate("/admin/dashboard");
-          break;
-        default:
-          navigate("/");
-      }
+      if (user.role === "admin") {
+  navigate("/admin/dashboard");
+} else {
+  navigate("/");
+}
     } catch (err) {
       setError("Credenciais inválidas! Verifique seu email e senha.");
     } finally {

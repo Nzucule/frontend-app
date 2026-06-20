@@ -11,17 +11,35 @@ export default function Navbar() {
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    // Verificar se usuário está logado
+  // Função para ler os dados do usuário do localStorage
+  const checarUsuario = () => {
     const token = localStorage.getItem("token");
     const userData = localStorage.getItem("user");
     
     if (token && userData) {
-      setUser(JSON.parse(userData));
+      try {
+        setUser(JSON.parse(userData));
+      } catch (e) {
+        setUser(null);
+      }
     } else {
       setUser(null);
     }
-  }, [location]); // Atualiza quando a rota muda
+  };
+
+  useEffect(() => {
+    // 1. Checa o usuário quando muda de rota
+    checarUsuario();
+
+    // 2. Cria um listener para atualizar na hora quando o login acontecer
+    window.addEventListener("storage", checarUsuario);
+    window.addEventListener("local-storage-update", checarUsuario);
+
+    return () => {
+      window.removeEventListener("storage", checarUsuario);
+      window.removeEventListener("local-storage-update", checarUsuario);
+    };
+  }, [location]); 
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -30,20 +48,10 @@ export default function Navbar() {
     navigate("/");
   };
 
-  const getDashboardLink = () => {
-    if (!user) return "/login";
-    return user.role === "admin" ? "/admin/dashboard" : "/cliente/dashboard";
-  };
-
-  const getDashboardText = () => {
-    if (!user) return "Entrar";
-    return user.role === "admin" ? "Painel Admin" : "Meu Painel";
-  };
-
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo">
+        <Link to="/" className="navbar-logo" onClick={() => setMenuOpen(false)}>
           <div className="logo-container">
             <div className="logo-image-frame">
               <img 
@@ -61,6 +69,7 @@ export default function Navbar() {
           </div>
         </Link>
 
+        {/* Links de Navegação Principais */}
         <ul className="navbar-links">
           <li>
             <Link 
@@ -96,28 +105,30 @@ export default function Navbar() {
           </li>
         </ul>
 
+        {/* Área de Autenticação / Controle de Acesso */}
         <div className="navbar-auth">
           {user ? (
-            // Usuário LOGADO - mostra dashboard e logout
             <>
-              <Link to={getDashboardLink()} className="btn-dashboard">
-                <span className="dashboard-icon">📊</span>
-                {getDashboardText()}
-              </Link>
+              {/* Se for Admin, mostra o botão do Painel Administrativo */}
+              {user.role === "admin" ? (
+                <Link to="/admin/dashboard" className="btn-dashboard">
+                  Painel Admin
+                </Link>
+              ) : (
+                /* Se for Cliente, exibe apenas uma saudação com o nome */
+                <span className="user-greeting">Olá, {user.name || "Cliente"}</span>
+              )}
+              
               <button onClick={handleLogout} className="btn-logout">
-                <span className="logout-icon">🚪</span>
                 Sair
               </button>
             </>
           ) : (
-            // Usuário NÃO logado - mostra login e registro
             <>
               <Link to="/login" className="btn-login">
-                <span className="login-icon"></span>
                 Entrar
               </Link>
               <Link to="/register" className="btn-register">
-                <span className="register-icon"></span>
                 Registre-se
               </Link>
             </>
@@ -130,28 +141,38 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Menu mobile */}
+      {/* Menu mobile responsivo */}
       {menuOpen && (
         <div className="mobile-menu">
           <Link to="/" onClick={() => setMenuOpen(false)}>Início</Link>
           <Link to="/servicos" onClick={() => setMenuOpen(false)}>Serviços</Link>
           <Link to="/sobre" onClick={() => setMenuOpen(false)}>Sobre Nós</Link>
           <Link to="/contactos" onClick={() => setMenuOpen(false)}>Contato</Link>
-          {user ? (
-            <>
-              <Link to={getDashboardLink()} onClick={() => setMenuOpen(false)}>
-                {getDashboardText()}
-              </Link>
-              <button onClick={handleLogout} className="mobile-logout">
-                Sair
-              </button>
-            </>
-          ) : (
-            <>
-              <Link to="/login" onClick={() => setMenuOpen(false)}>Entrar</Link>
-              <Link to="/register" onClick={() => setMenuOpen(false)}>Registre-se</Link>
-            </>
-          )}
+          
+          <div className="mobile-menu-auth">
+            {user ? (
+              <>
+                {user.role === "admin" ? (
+                  <Link to="/admin/dashboard" onClick={() => setMenuOpen(false)}>
+                    Painel Admin
+                  </Link>
+                ) : (
+                  <span className="mobile-user-greeting">Olá, {user.name || "Cliente"}</span>
+                )}
+                <button 
+                  onClick={() => { handleLogout(); setMenuOpen(false); }} 
+                  className="mobile-logout"
+                >
+                  Sair
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/login" onClick={() => setMenuOpen(false)}>Entrar</Link>
+                <Link to="/register" onClick={() => setMenuOpen(false)}>Registre-se</Link>
+              </>
+            )}
+          </div>
         </div>
       )}
     </nav>

@@ -38,7 +38,7 @@ export default function Footer() {
           <ul>
             <li> Maputo, Moçambique</li>
             <li> +258 82 299 6958</li>
-            <li>comercial@appMoz.co.mz</li>
+            <li>comercial@appmoz.co.mz</li>
             <li>www.appmoz.co.mz</li>
           </ul>
         </div>

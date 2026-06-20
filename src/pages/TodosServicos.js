@@ -23,7 +23,7 @@ export default function TodosServicos() {
 
   const carregarServicos = async () => {
     try {
-      const response = await axios.get("https://backendprincipal-production.up.railway.app/api/servicos");
+      const response = await axios.get("backendprincipal-production.up.railway.app/api/servicos");
       setServicos(response.data);
       setLoading(false);
     } catch (error) {
@@ -38,14 +38,9 @@ export default function TodosServicos() {
       ? servicos
       : servicos.filter((s) => s.categoria === categoria);
 
-  const agendar = (id) => {
-    const user = localStorage.getItem("user");
-    if (!user) return navigate("/login");
-
-    const parsed = JSON.parse(user);
-    if (parsed.role !== "cliente") return navigate("/login");
-
-    navigate(`/cliente/agendar/${id}`);
+  // Função para navegar para os detalhes do serviço
+  const verDetalhes = (id) => {
+    navigate(`/servico/${id}`);
   };
 
   // Função para obter imagem baseada na categoria
@@ -140,7 +135,8 @@ export default function TodosServicos() {
                   <div
                     key={servico.id}
                     className="servico-card"
-                    onClick={() => navigate(`/servico/${servico.id}`)}
+                    onClick={() => verDetalhes(servico.id)}
+                    style={{ cursor: "pointer" }}
                   >
                     <img
                       src={getImagemPorCategoria(servico.categoria)}
@@ -172,11 +168,13 @@ export default function TodosServicos() {
                     <button
                       className="btn-agendar"
                       onClick={(e) => {
+                        // e.stopPropagation() já não é necessário se queremos o mesmo comportamento,
+                        // mas mantém-se para evitar cliques duplicados propagados para o card.
                         e.stopPropagation();
-                        agendar(servico.id);
+                        verDetalhes(servico.id);
                       }}
                     >
-                      Agendar
+                      Ver Detalhes
                     </button>
                   </div>
                 ))}

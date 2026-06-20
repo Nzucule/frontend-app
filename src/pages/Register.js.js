@@ -55,7 +55,7 @@ export default function Register() {
     }
 
     try {
-      const response = await axios.post("https://backendprincipal-production.up.railway.app/api/register", {
+      const response = await axios.post("backendprincipal-production.up.railway.app/api/register", {
         name: form.name,
         email: form.email,
         telefone: form.telefone,

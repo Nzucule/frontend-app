@@ -8,19 +8,15 @@ import ServicoDetalhes from "./pages/ServicoDetalhes";
 import TodosServicos from "./pages/TodosServicos";
 
 import ProtectedRoute from "./components/ProtectedRoute";
-import DashboardCliente from "./pages/cliente/DashboardCliente";
 import DashboardAdmin from "./pages/admin/DashboardAdmin";
 import ServicosAdmin from "./pages/admin/ServicosAdmin";
 import ClientesAdmin from "./pages/admin/ClientesAdmin";
-import AgendamentosAdmin from "./pages/admin/AgendamentosAdmin"; // NOVO
-import TecnicosAdmin from "./pages/admin/TecnicosAdmin"; // NOVO
-import RelatoriosAdmin from "./pages/admin/RelatoriosAdmin"; // NOVO
-import ConfiguracoesAdmin from "./pages/admin/ConfiguracoesAdmin"; // NOVO
+import AgendamentosAdmin from "./pages/admin/AgendamentosAdmin"; 
+import TecnicosAdmin from "./pages/admin/TecnicosAdmin"; 
+import RelatoriosAdmin from "./pages/admin/RelatoriosAdmin"; 
+import ConfiguracoesAdmin from "./pages/admin/ConfiguracoesAdmin"; 
 
 import AgendarServico from "./pages/cliente/AgendarServico.js";
-import MeusAgendamentos from "./pages/cliente/MeusAgendamentos.js";
-import HistoricoCliente from "./pages/cliente/HistoricoCliente.js";
-import PerfilCliente from "./pages/cliente/PerfilCliente.js";
 
 function App() {
   return (
@@ -34,50 +30,11 @@ function App() {
         <Route path="/contactos" element={<Contactos />} />
         <Route path="/servico/:id" element={<ServicoDetalhes />} />
         <Route path="/servicos" element={<TodosServicos />} />
+        
+        {/* ROTA DE AGENDAMENTO PÚBLICA (Sem barreiras de login) */}
+        <Route path="/agendar" element={<AgendarServico />} />
 
-        {/* ROTAS DO CLIENTE */}
-        <Route
-          path="/cliente/dashboard"
-          element={
-            <ProtectedRoute allowedRoles={["cliente"]}>
-              <DashboardCliente />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/cliente/agendar/:id"
-          element={
-            <ProtectedRoute allowedRoles={["cliente"]}>
-              <AgendarServico />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/cliente/agendamentos"
-          element={
-            <ProtectedRoute allowedRoles={["cliente"]}>
-              <MeusAgendamentos />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/cliente/historico"
-          element={
-            <ProtectedRoute allowedRoles={["cliente"]}>
-              <HistoricoCliente />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/cliente/perfil"
-          element={
-            <ProtectedRoute allowedRoles={["cliente"]}>
-              <PerfilCliente />
-            </ProtectedRoute>
-          }
-        />
-
-        {/* ROTAS DO ADMIN */}
+        {/* ROTAS DO ADMIN (Protegidas) */}
         <Route
           path="/admin/dashboard"
           element={

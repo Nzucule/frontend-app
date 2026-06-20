@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://backendprincipal-production.up.railway.app/api",
+  baseURL: "backendprincipal-production.up.railway.app/api",
 });
 
 // Adiciona o token automaticamente
