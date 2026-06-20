@@ -28,7 +28,7 @@ export default function Home() {
 
   const carregarServicos = async () => {
     try {
-      const response = await axios.get("backendprincipal-production.up.railway.app/api/servicos");
+      const response = await axios.get("https://backendprincipal-production.up.railway.app/api/servicos");
       const dados = response.data?.data || response.data;
       setServicos(Array.isArray(dados) ? dados : []);
     } catch (error) {

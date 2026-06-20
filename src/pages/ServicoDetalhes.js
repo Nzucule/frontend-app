@@ -27,7 +27,7 @@ export default function ServicoDetalhes() {
   const carregarServico = async () => {
     try {
       const response = await axios.get(
-        `backendprincipal-production.up.railway.app/api/servicos/${id}`,
+        `https://backendprincipal-production.up.railway.app/api/servicos/${id}`,
       );
       setServico(response.data);
     } catch (error) {
@@ -37,7 +37,7 @@ export default function ServicoDetalhes() {
 
   const carregarRelacionados = async () => {
     try {
-      const response = await axios.get("backendprincipal-production.up.railway.app/api/servicos");
+      const response = await axios.get("https://backendprincipal-production.up.railway.app/api/servicos");
       // Pega 2 serviços diferentes do atual
       const relacionados = response.data
         .filter((s) => s.id !== parseInt(id))
