@@ -8,11 +8,13 @@ import bannerFundo from "../img/imagem4.jpg";
 
 // Importação das imagens dos clientes
 import yaya from "../img/yaya.png";
-import loto from "../img/loto.png";
 import geniel from "../img/geniel.png";
 import edm from "../img/edm.png";
 import apiex from "../img/apiex.jpeg";
 import neopac from "../img/neopac.jpeg";
+
+// 🔥 NOVA IMPORTAÇÃO: TechVision (sem nome visível)
+import techvisionLogo from "../img/techvision-logo.png"; // ou techvision.png
 
 // Importação da imagem do Mata-Mosquitos
 import mataMosquitos from "../img/mata-mosquitos.png";
@@ -43,13 +45,13 @@ export default function Home() {
     navigate("/agendar");
   };
 
-  // Dados dos clientes reais com imagens
+  // 🔥 DADOS DOS CLIENTES - PREMIER LOTO REMOVIDO, TECHVISION ADICIONADO
   const clientesReais = [
     { 
-      nome: "Premier Loto", 
-      servico: "Desinfecção e Controlo de Pragas", 
-      logo: loto,
-      alt: "Premier Loto - Desinfecção e Controlo de Pragas"
+      nome: "TechVision Solutions", 
+      servico: "Tecnologia e Inovação", 
+      logo: techvisionLogo,
+      alt: "TechVision - Tecnologia e Inovação"
     },
     { 
       nome: "Geniel", 
@@ -300,16 +302,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECÇÃO: DEPOIMENTOS */}
+      {/* 🔥 SECÇÃO: DEPOIMENTOS - PREMIER LOTO REMOVIDO */}
       <section className="home-testimonials">
         <div className="container">
           <h2>O que os nossos clientes dizem</h2>
           <div className="testimonials-grid">
             <div className="testimonial-item">
-              <p className="testimonial-text">"A APP All Pest Protect é nossa parceira há mais de 2 anos. O serviço é impecável e sempre pontual. Recomendamos a todas as empresas."</p>
+              <p className="testimonial-text">"A TechVision Solutions é parceira da APP All Pest Protect na modernização dos seus serviços. Inovação e tecnologia a favor do controlo de pragas."</p>
               <div className="testimonial-author">
-                <strong>Premier Loto</strong>
-                <span>Desinfecção e Controlo de Pragas</span>
+                <strong>TechVision Solutions</strong>
+                <span>Tecnologia e Inovação</span>
               </div>
             </div>
             <div className="testimonial-item">

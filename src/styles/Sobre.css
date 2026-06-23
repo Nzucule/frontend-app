@@ -811,184 +811,72 @@
   }
 }
 /* ================================
-   ESTILOS GERAIS - SEM FONTES EXTERNAS
+   TECHVISION TEXT LOGO (SEM IMAGEM)
 ================================= */
-* {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* ================================
-   BANNER SOBRE
-================================= */
-.sobre-banner {
-  background: #1a1a2e;
-  color: #ffffff;
-  padding: 80px 0;
-  text-align: center;
-}
-
-.sobre-banner h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.sobre-banner p {
-  font-size: 1.2rem;
-  opacity: 0.8;
-}
-
-/* ================================
-   NOSSA HISTÓRIA
-================================= */
-.nossa-historia {
-  padding: 80px 0;
-  background: #f8f9fa;
-}
-
-.historia-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  align-items: center;
-}
-
-.historia-badge {
-  display: inline-block;
-  background: #1a1a2e;
-  color: #fff;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-}
-
-.historia-text h2 {
-  font-size: 2rem;
-  color: #1a1a2e;
-  margin-bottom: 20px;
-}
-
-.historia-text p {
-  color: #555;
-  line-height: 1.8;
-  margin-bottom: 15px;
-}
-
-.historia-features {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin: 20px 0;
-}
-
-.feature-item {
+.techvision-text-logo {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  color: #333;
-}
-
-.feature-icon {
-  color: #1a1a2e;
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
-.historia-vision {
-  background: #1a1a2e;
-  color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  margin-top: 20px;
-}
-
-.historia-vision p {
-  color: #fff !important;
-  margin: 0;
-}
-
-.historia-image img {
-  width: 100%;
+  justify-content: center;
+  gap: 2px;
+  padding: 15px;
+  background: linear-gradient(135deg, #0a1628 0%, #1a2744 50%, #0d1f3c 100%);
   border-radius: 12px;
+  min-width: 120px;
+  min-height: 100px;
+  border: 2px solid rgba(138, 180, 248, 0.3);
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 100%;
 }
 
-.image-overlay {
-  background: rgba(26, 26, 46, 0.8);
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  border-radius: 0 0 12px 12px;
+.techvision-text-logo:hover {
+  transform: scale(1.05);
+  border-color: #4fc3f7;
+  box-shadow: 0 0 30px rgba(79, 195, 247, 0.2);
 }
 
-.image-overlay span {
-  font-size: 1.2rem;
-  font-weight: bold;
-  display: block;
+.techvision-icon {
+  font-size: 2rem;
+}
+
+.techvision-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.techvision-tag {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #4fc3f7;
+  background: rgba(79, 195, 247, 0.15);
+  padding: 2px 12px;
+  border-radius: 10px;
+  letter-spacing: 1px;
 }
 
 /* ================================
-   MISSÃO, VISÃO E VALORES
+   EMOJIS - ESTILOS
 ================================= */
-.nossa-missao {
-  padding: 80px 0;
-  background: #ffffff;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2.2rem;
-  color: #1a1a2e;
-  margin-bottom: 10px;
-}
-
-.section-subtitle {
-  text-align: center;
-  color: #777;
-  font-size: 1.1rem;
-  margin-bottom: 40px;
-}
-
-.missao-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.missao-card {
-  background: #f8f9fa;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.missao-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
 .missao-icon {
   font-size: 2.5rem;
   margin-bottom: 15px;
 }
 
-.missao-card h3 {
-  font-size: 1.3rem;
-  color: #1a1a2e;
-  margin-bottom: 10px;
+.diferencial-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
 }
 
-.missao-card p {
-  color: #555;
-  line-height: 1.6;
+.feature-icon {
+  font-size: 1.1rem;
+  margin-right: 8px;
+}
+
+.stat-icon {
+  font-size: 2.5rem;
 }
 
 .valores-list {
@@ -1003,78 +891,8 @@
 }
 
 /* ================================
-   DIFERENCIAIS
+   CLIENTE IMAGEM
 ================================= */
-.diferenciais {
-  padding: 80px 0;
-  background: #f0f4f8;
-}
-
-.diferenciais-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
-}
-
-.diferencial-item {
-  background: #ffffff;
-  padding: 30px 20px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-}
-
-.diferencial-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.diferencial-icon {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-.diferencial-item h3 {
-  font-size: 1.1rem;
-  color: #1a1a2e;
-  margin-bottom: 10px;
-}
-
-.diferencial-item p {
-  color: #777;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-/* ================================
-   CLIENTES - PLACEHOLDER TECHVISION
-================================= */
-.clientes-parceiros {
-  padding: 80px 0;
-  background: #ffffff;
-}
-
-.clientes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 25px;
-  margin-top: 40px;
-}
-
-.cliente-card {
-  background: #f8f9fa;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.cliente-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
 .cliente-imagem {
   width: 100%;
   height: 150px;
@@ -1084,7 +902,7 @@
   margin-bottom: 15px;
   border-radius: 8px;
   overflow: hidden;
-  background: #e9ecef;
+  background: #f5f7fa;
 }
 
 .cliente-imagem img {
@@ -1092,229 +910,4 @@
   height: 100%;
   object-fit: contain;
   padding: 10px;
-}
-
-.cliente-placeholder {
-  width: 100%;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #0a1628 0%, #1a2744 50%, #0d1f3c 100%);
-  border-radius: 12px;
-}
-
-.techvision-placeholder:hover {
-  transform: scale(1.03);
-  border: 2px solid #4fc3f7;
-}
-
-.placeholder-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.placeholder-icon {
-  font-size: 2.5rem;
-}
-
-.placeholder-text {
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.cliente-card h4 {
-  font-size: 1rem;
-  color: #1a1a2e;
-  margin-bottom: 5px;
-}
-
-.cliente-card p {
-  font-size: 0.85rem;
-  color: #555;
-  margin-bottom: 5px;
-}
-
-.cliente-card small {
-  font-size: 0.75rem;
-  color: #888;
-  display: block;
-}
-
-/* ================================
-   ESTATÍSTICAS
-================================= */
-.estatisticas {
-  padding: 60px 0;
-  background: #1a1a2e;
-  color: #ffffff;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  text-align: center;
-}
-
-.stat-item {
-  padding: 20px;
-}
-
-.stat-icon-wrapper {
-  margin-bottom: 10px;
-}
-
-.stat-icon {
-  font-size: 2.5rem;
-}
-
-.stat-item strong {
-  font-size: 2rem;
-  display: block;
-  margin-bottom: 5px;
-}
-
-.stat-item span {
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-
-/* ================================
-   CHAMADA PARA AÇÃO
-================================= */
-.sobre-cta {
-  padding: 80px 0;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: #ffffff;
-  text-align: center;
-}
-
-.cta-content h2 {
-  font-size: 2.2rem;
-  margin-bottom: 15px;
-}
-
-.cta-content p {
-  font-size: 1.1rem;
-  opacity: 0.8;
-  margin-bottom: 30px;
-}
-
-.cta-buttons {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.cta-button {
-  padding: 12px 35px;
-  border: none;
-  border-radius: 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.cta-button.primary {
-  background: #4fc3f7;
-  color: #1a1a2e;
-}
-
-.cta-button.primary:hover {
-  background: #29b6f6;
-  transform: translateY(-2px);
-}
-
-.cta-button.secondary {
-  background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-}
-
-.cta-button.secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* ================================
-   RESPONSIVIDADE
-================================= */
-@media (max-width: 1024px) {
-  .historia-content {
-    grid-template-columns: 1fr;
-  }
-  
-  .missao-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .diferenciais-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .sobre-banner h1 {
-    font-size: 1.8rem;
-  }
-  
-  .missao-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .diferenciais-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .clientes-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .cta-button {
-    width: 100%;
-    max-width: 300px;
-  }
-}
-
-@media (max-width: 480px) {
-  .clientes-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  
-  .cliente-imagem {
-    height: 100px;
-  }
-  
-  .cliente-placeholder {
-    height: 100px;
-  }
-  
-  .placeholder-icon {
-    font-size: 1.8rem;
-  }
-  
-  .placeholder-text {
-    font-size: 0.8rem;
-  }
 }

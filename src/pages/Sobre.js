@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Sobre.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import imagem from "../img/job.jpg";
 
-// Importação das imagens dos clientes
+// Importação das imagens dos clientes (PREMIER LOTO REMOVIDO)
 import yaya from "../img/yaya.png";
 import geniel from "../img/geniel.png";
 import edm from "../img/edm.png";
@@ -12,14 +12,15 @@ import apiex from "../img/apiex.jpeg";
 import neopac from "../img/neopac.jpeg";
 
 export default function Sobre() {
-  // Dados dos clientes/parceiros (COM TECHVISION NO LUGAR DO PREMIER LOTO)
+  // Dados dos clientes/parceiros (TECHVISION NO LUGAR DA PREMIER LOTO)
   const clientes = [
     {
       id: 1,
       nome: "TechVision Solutions",
       cargo: "Tecnologia e Inovação",
       imagem: null,
-      descricao: "Parceiro tecnológico em soluções digitais e transformação digital"
+      descricao: "Parceiro tecnológico em soluções digitais e transformação digital",
+      isTechVision: true
     },
     {
       id: 2,
@@ -79,7 +80,7 @@ export default function Sobre() {
               <h2>Compromisso com Ambientes Saudáveis</h2>
               <p>
                 Somos uma empresa moçambicana sediada na Cidade de Maputo, presentes no mercado desde 2022, 
-                actuando nas áreas de fumigação, controlo integrado de pragas e limpeza. Focamo-nos na prestação 
+                a actuar nas áreas de fumigação, controlo integrado de pragas e limpeza. Focamo-nos na prestação 
                 de serviços de qualidade, utilizando técnicas modernas e especializadas.
               </p>
               <p>
@@ -89,25 +90,25 @@ export default function Sobre() {
               </p>
               <div className="historia-features">
                 <div className="feature-item">
-                  <span className="feature-icon">✓</span>
+                  <span className="feature-icon">✅</span>
                   <span>Equipa Especializada</span>
                 </div>
                 <div className="feature-item">
-                  <span className="feature-icon">✓</span>
+                  <span className="feature-icon">✅</span>
                   <span>Tecnologia Avançada</span>
                 </div>
                 <div className="feature-item">
-                  <span className="feature-icon">✓</span>
+                  <span className="feature-icon">✅</span>
                   <span>Produtos Certificados</span>
                 </div>
                 <div className="feature-item">
-                  <span className="feature-icon">✓</span>
+                  <span className="feature-icon">✅</span>
                   <span>Atendimento 24/7</span>
                 </div>
               </div>
               <div className="historia-vision">
                 <p>
-                  <strong>Nossa Visão:</strong> Ser líder nacional no setor, promovendo bem-estar, conforto e 
+                  <strong>A Nossa Visão:</strong> Ser líder nacional no setor, promovendo bem-estar, conforto e 
                   ambientes livres de pragas.
                 </p>
               </div>
@@ -130,14 +131,14 @@ export default function Sobre() {
       {/* Missão, Visão e Valores */}
       <section className="nossa-missao">
         <div className="container">
-          <h2 className="section-title">Nossa Essência</h2>
+          <h2 className="section-title">A Nossa Essência</h2>
           <p className="section-subtitle">O que nos move e nos guia no dia a dia</p>
           <div className="missao-grid">
             <div className="missao-card">
               <div className="missao-icon">🎯</div>
               <h3>Missão</h3>
               <p>
-                Prestar apoio a empresas e singulares na prevenção e controle sistemático de pragas e limpeza, 
+                Prestar apoio a empresas e singulares na prevenção e controlo sistemático de pragas e limpeza, 
                 através de soluções inovadoras e eficazes, garantindo segurança e bem-estar.
               </p>
             </div>
@@ -155,11 +156,11 @@ export default function Sobre() {
               <div className="missao-icon">⚖️</div>
               <h3>Valores</h3>
               <ul className="valores-list">
-                <li>✓ Qualidade e Excelência</li>
-                <li>✓ Ética Profissional</li>
-                <li>✓ Responsabilidade Ambiental</li>
-                <li>✓ Dinamismo e Proatividade</li>
-                <li>✓ Compromisso com o Cliente</li>
+                <li>✅ Qualidade e Excelência</li>
+                <li>✅ Ética Profissional</li>
+                <li>✅ Responsabilidade Ambiental</li>
+                <li>✅ Dinamismo e Proatividade</li>
+                <li>✅ Compromisso com o Cliente</li>
               </ul>
             </div>
           </div>
@@ -169,7 +170,7 @@ export default function Sobre() {
       {/* Diferenciais */}
       <section className="diferenciais">
         <div className="container">
-          <h2 className="section-title">Nossos Diferenciais</h2>
+          <h2 className="section-title">Os Nossos Diferenciais</h2>
           <p className="section-subtitle">O que nos torna a escolha certa</p>
           <div className="diferenciais-grid">
             <div className="diferencial-item">
@@ -205,15 +206,14 @@ export default function Sobre() {
             {clientes.map((cliente) => (
               <div key={cliente.id} className="cliente-card">
                 <div className="cliente-imagem">
-                  {cliente.imagem ? (
-                    <img src={cliente.imagem} alt={cliente.nome} />
-                  ) : (
-                    <div className="cliente-placeholder techvision-placeholder">
-                      <div className="placeholder-content">
-                        <span className="placeholder-icon">💻</span>
-                        <span className="placeholder-text">TechVision</span>
-                      </div>
+                  {cliente.isTechVision ? (
+                    <div className="techvision-text-logo">
+                      <span className="techvision-icon">💻</span>
+                      <span className="techvision-name">TechVision</span>
+                      <span className="techvision-tag">TECH</span>
                     </div>
+                  ) : (
+                    <img src={cliente.imagem} alt={cliente.nome} />
                   )}
                 </div>
                 <h4>{cliente.nome}</h4>
@@ -268,7 +268,7 @@ export default function Sobre() {
       <section className="sobre-cta">
         <div className="container">
           <div className="cta-content">
-            <h2>Proteja seu Ambiente Hoje</h2>
+            <h2>Proteja o seu Ambiente Hoje</h2>
             <p>Agende uma vistoria gratuita e descubra como podemos ajudar</p>
             <div className="cta-buttons">
               <button className="cta-button primary" onClick={() => window.location.href = "/agendar"}>
