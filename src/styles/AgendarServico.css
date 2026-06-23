@@ -82,7 +82,7 @@
   margin-top: 12px;
 }
 
-/* ===== STEPS INDICATOR ===== */
+/* ===== STEPS INDICATOR - CORRIGIDO ===== */
 .steps-indicator {
   display: flex;
   align-items: center;
@@ -91,16 +91,18 @@
   padding: 10px 20px;
   background: #f8fafc;
   border-radius: 50px;
+  border: 1px solid #e2e8f0;
 }
 
 .step {
   display: flex;
   align-items: center;
   gap: 10px;
-  opacity: 0.5;
-  transition: all 0.3s ease;
+  opacity: 0.4;
+  transition: all 0.4s ease;
 }
 
+/* 🔥 STEP ATIVO - DESTAQUE AZUL ESCURO */
 .step.active {
   opacity: 1;
 }
@@ -116,36 +118,44 @@
   justify-content: center;
   font-weight: 700;
   font-size: 0.9rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
+/* 🔥 NÚMERO DO STEP ATIVO - AZUL ESCURO COM SOMBRA */
 .step.active .step-number {
-  background: linear-gradient(135deg, #0B4F6C, #1287A8);
+  background: linear-gradient(135deg, #0B4F6C, #0a3d5c);
   color: white;
-  box-shadow: 0 4px 15px rgba(11, 79, 108, 0.35);
+  box-shadow: 0 4px 20px rgba(11, 79, 108, 0.45);
+  transform: scale(1.05);
+}
+
+/* 🔥 LABEL DO STEP ATIVO - AZUL ESCURO E NEGRITO */
+.step.active .step-label {
+  color: #0B4F6C;
+  font-weight: 700;
 }
 
 .step-label {
   font-size: 0.8rem;
-  color: #64748B;
-  font-weight: 600;
+  color: #94a3b8;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  transition: all 0.3s ease;
 }
 
-.step.active .step-label {
-  color: #0B4F6C;
-}
-
+/* LINHA ENTRE STEPS */
 .step-line {
   width: 50px;
-  height: 2px;
+  height: 3px;
   background: #e2e8f0;
   margin: 0 8px;
-  transition: background 0.3s ease;
+  transition: background 0.4s ease;
   flex-shrink: 0;
+  border-radius: 2px;
 }
 
+/* 🔥 LINHA ATIVA - AZUL ESCURO */
 .step-line.active {
   background: linear-gradient(90deg, #0B4F6C, #1287A8);
 }
@@ -284,13 +294,32 @@
   border-radius: 16px;
   padding: 25px 30px;
   margin-bottom: 25px;
-  border: 1px solid #e2e8f0;
-  transition: all 0.3s ease;
+  border: 2px solid #e2e8f0;
+  transition: all 0.4s ease;
+  opacity: 0.7;
 }
 
-.section-card:hover {
-  border-color: #0B4F6C30;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+/* 🔥 SEÇÃO ATIVA - DESTAQUE AZUL ESCURO */
+.section-card.active-step {
+  border-color: #0B4F6C;
+  box-shadow: 0 4px 25px rgba(11, 79, 108, 0.10);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 🔥 SEÇÃO INATIVA - OPACIDADE E CINZA */
+.section-card.inactive-step {
+  opacity: 0.5;
+  border-color: #e2e8f0;
+  filter: grayscale(20%);
+  pointer-events: none;
+}
+
+.section-card.inactive-step .form-group input,
+.section-card.inactive-step .form-group select,
+.section-card.inactive-step .form-group textarea {
+  background: #f1f5f9;
+  cursor: not-allowed;
 }
 
 .section-title {
@@ -428,6 +457,40 @@
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
+}
+
+/* ===== BOTÃO VOLTAR ETAPA ===== */
+.btn-voltar-etapa {
+  padding: 16px 40px;
+  background: #f1f5f9;
+  color: #475569;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-voltar-etapa:hover:not(:disabled) {
+  background: #e2e8f0;
+  border-color: #cbd5e1;
+  transform: translateX(-4px);
+}
+
+.btn-voltar-etapa:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ===== NAVEGAÇÃO DO FORMULÁRIO ===== */
+.form-navigation {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 2px solid #f1f5f9;
 }
 
 /* ===== FATURA CONTAINER ===== */
@@ -692,7 +755,48 @@
   to { transform: rotate(360deg); }
 }
 
-/* ===== RESPONSIVIDADE ===== */
+/* ============================================================
+   SECTION SUBTEXT
+   ============================================================ */
+.section-subtext {
+  color: #64748B;
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+/* ============================================================
+   USER LOGGED INFO
+   ============================================================ */
+.user-logged-info {
+  background: #f0f8f4;
+  border-color: #a7f3d0;
+}
+
+.user-info-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  padding: 5px 0;
+}
+
+.user-info-row span {
+  color: #1e293b;
+  font-size: 0.95rem;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.user-info-row strong {
+  color: #0B4F6C;
+}
+
+/* ============================================================
+   RESPONSIVIDADE
+   ============================================================ */
 @media (max-width: 768px) {
   .agendar-container {
     padding: 25px 20px;
@@ -783,6 +887,26 @@
     flex-direction: column;
     text-align: center;
   }
+
+  .user-info-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .user-info-row span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .form-navigation {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-voltar-etapa {
+    text-align: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -853,6 +977,11 @@
   .pdf-preview-container h3 {
     font-size: 1.4rem;
   }
+
+  .btn-voltar-etapa {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
 }
 
 /* ===== SCROLLBAR PERSONALIZADA ===== */
@@ -872,54 +1001,4 @@
 
 .agendar-container::-webkit-scrollbar-thumb:hover {
   background: #1287A8;
-}
-/* Adicione ao AgendarServico.css */
-
-/* ===== SECTION SUBTEXT ===== */
-.section-subtext {
-  color: #64748B;
-  font-size: 0.9rem;
-  margin-bottom: 18px;
-  padding-bottom: 12px;
-  border-bottom: 1px dashed #e2e8f0;
-}
-
-/* ===== USER LOGGED INFO ===== */
-.user-logged-info {
-  background: #f0f8f4;
-  border-color: #a7f3d0;
-}
-
-.user-info-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 15px;
-  padding: 5px 0;
-}
-
-.user-info-row span {
-  color: #1e293b;
-  font-size: 0.95rem;
-  padding: 8px 12px;
-  background: white;
-  border-radius: 8px;
-  border: 1px solid #e2e8f0;
-}
-
-.user-info-row strong {
-  color: #0B4F6C;
-}
-
-/* ===== RESPONSIVO PARA USER INFO ===== */
-@media (max-width: 768px) {
-  .user-info-row {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  
-  .user-info-row span {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
 }

@@ -112,28 +112,30 @@ function AgendarServico() {
     return `${dia}/${mes}/${ano}`;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-    setSuccess("");
-
+  // 🔥 VALIDAÇÃO DA PRIMEIRA ETAPA (DADOS DO SERVIÇO)
+  const validarPrimeiraEtapa = () => {
+    // Validar serviço selecionado
     if (!formData.servico_id) {
-      setError("Por favor, selecione um serviço na lista.");
-      setLoading(false);
-      return;
+      setError("Por favor, selecione um serviço.");
+      return false;
     }
 
-    if (!userLogado && (!formData.nome_cliente || !formData.email_cliente || !formData.contacto_cliente)) {
-      setError("Por favor, preencha os seus dados de contacto para comunicação.");
-      setLoading(false);
-      return;
+    // Validar endereço
+    if (!formData.endereco_completo.trim()) {
+      setError("Por favor, preencha o endereço completo.");
+      return false;
     }
 
-    if (!formData.endereco_completo || !formData.bairro || !formData.data_agendamento) {
-      setError("Por favor, preencha todos os campos obrigatórios.");
-      setLoading(false);
-      return;
+    // Validar bairro
+    if (!formData.bairro.trim()) {
+      setError("Por favor, preencha o bairro.");
+      return false;
+    }
+
+    // Validar data
+    if (!formData.data_agendamento) {
+      setError("Por favor, selecione uma data para o agendamento.");
+      return false;
     }
 
     const dataSelecionada = new Date(formData.data_agendamento + "T12:00:00");
@@ -141,50 +143,113 @@ function AgendarServico() {
     hoje.setHours(0, 0, 0, 0);
 
     if (dataSelecionada < hoje) {
-      setError("Por favor, selecione uma data de hoje em diante.");
-      setLoading(false);
-      return;
+      setError("Por favor, selecione uma data a partir de hoje.");
+      return false;
     }
 
-    if (servico && servico.categoria === "termico") {
-      try {
-        const payload = {
-          servico_id: formData.servico_id,
-          endereco_completo: formData.endereco_completo,
-          bairro: formData.bairro,
-          cidade: formData.cidade,
-          zona: formData.zona,
-          data_agendamento: formData.data_agendamento,
-          quantidade_compartimentos: 1,
-          observacoes: formData.observacoes,
-          ...(!userLogado && {
-            nome_cliente: formData.nome_cliente,
-            email_cliente: formData.email_cliente,
-            telefone_cliente: formData.contacto_cliente,
-            anonimo: true
-          })
-        };
-
-        const response = await axios.post("/agendamentos", payload);
-
-        if (response.data.success) {
-          setAgendamentoId(response.data.data?.agendamento?.id || Math.floor(Math.random() * 1000));
-          setShowPDFPreview(true);
-        }
-      } catch (error) {
-        setError(error.response?.data?.message || "Erro ao solicitar agendamento.");
-      } finally {
-        setLoading(false);
-      }
-      return;
+    // Se for serviço térmico, validar quantidade
+    if (servico && servico.categoria !== "termico" && formData.quantidade_compartimentos < 1) {
+      setError("A quantidade de compartimentos deve ser pelo menos 1.");
+      return false;
     }
 
-    setShowFatura(true);
-    setLoading(false);
+    return true;
   };
 
+  // 🔥 VALIDAÇÃO DA SEGUNDA ETAPA (DADOS DO CLIENTE - APENAS PARA NÃO LOGADOS)
+  const validarSegundaEtapa = () => {
+    if (!userLogado) {
+      if (!formData.nome_cliente.trim()) {
+        setError("Por favor, preencha o seu nome.");
+        return false;
+      }
+      if (!formData.email_cliente.trim()) {
+        setError("Por favor, preencha o seu e-mail.");
+        return false;
+      }
+      if (!formData.contacto_cliente.trim()) {
+        setError("Por favor, preencha o seu contacto telefónico.");
+        return false;
+      }
+    }
+    return true;
+  };
+
+  // 🔥 AVANÇAR PARA A PRÓXIMA ETAPA
+  const avancarEtapa = () => {
+    setError("");
+
+    if (currentStep === 1) {
+      // Validar primeira etapa
+      if (validarPrimeiraEtapa()) {
+        setCurrentStep(2);
+        // Limpar erros anteriores
+        setError("");
+      }
+    } else if (currentStep === 2) {
+      // Validar segunda etapa
+      if (validarSegundaEtapa()) {
+        // Se for serviço térmico, vai direto para o PDF
+        if (servico && servico.categoria === "termico") {
+          enviarAgendamentoTermico();
+        } else {
+          // Mostrar fatura para confirmar
+          setShowFatura(true);
+        }
+      }
+    }
+  };
+
+  // 🔥 VOLTAR ETAPA
+  const voltarEtapa = () => {
+    setError("");
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  // 🔥 ENVIAR AGENDAMENTO TÉRMICO
+  const enviarAgendamentoTermico = async () => {
+    setLoading(true);
+    setError("");
+
+    try {
+      const payload = {
+        servico_id: formData.servico_id,
+        endereco_completo: formData.endereco_completo,
+        bairro: formData.bairro,
+        cidade: formData.cidade,
+        zona: formData.zona,
+        data_agendamento: formData.data_agendamento,
+        quantidade_compartimentos: 1,
+        observacoes: formData.observacoes,
+        ...(!userLogado && {
+          nome_cliente: formData.nome_cliente,
+          email_cliente: formData.email_cliente,
+          telefone_cliente: formData.contacto_cliente,
+          anonimo: true
+        })
+      };
+
+      const response = await axios.post("/agendamentos", payload);
+
+      if (response.data.success) {
+        setAgendamentoId(response.data.data?.agendamento?.id || Math.floor(Math.random() * 1000));
+        setShowPDFPreview(true);
+        setCurrentStep(3);
+      }
+    } catch (error) {
+      setError(error.response?.data?.message || "Erro ao solicitar agendamento.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // 🔥 CONFIRMAR AGENDAMENTO (para serviços normais)
   const confirmarAgendamento = async () => {
     setLoading(true);
+    setError("");
+
     try {
       const payload = {
         servico_id: formData.servico_id,
@@ -209,6 +274,7 @@ function AgendarServico() {
         setAgendamentoId(response.data.data?.agendamento?.id || Math.floor(Math.random() * 1000));
         setShowPDFPreview(true);
         setShowFatura(false);
+        setCurrentStep(3);
       }
     } catch (error) {
       setError(error.response?.data?.message || "Erro ao realizar agendamento.");
@@ -327,12 +393,12 @@ function AgendarServico() {
         <div className={`step-line ${currentStep >= 2 ? 'active' : ''}`}></div>
         <div className={`step ${currentStep >= 2 ? 'active' : ''}`}>
           <span className="step-number">2</span>
-          <span className="step-label">Contacto</span>
+          <span className="step-label">{userLogado ? 'Confirmar' : 'Contacto'}</span>
         </div>
         <div className={`step-line ${currentStep >= 3 ? 'active' : ''}`}></div>
         <div className={`step ${currentStep >= 3 ? 'active' : ''}`}>
           <span className="step-number">3</span>
-          <span className="step-label">Confirmar</span>
+          <span className="step-label">Concluído</span>
         </div>
       </div>
     );
@@ -385,9 +451,9 @@ function AgendarServico() {
               </div>
             )}
 
-            <form className="agendar-form" onSubmit={handleSubmit}>
-              {/* SEÇÃO 1: DADOS DO SERVIÇO */}
-              <div className="section-card">
+            <form className="agendar-form" onSubmit={(e) => e.preventDefault()}>
+              {/* 🔥 ETAPA 1: DADOS DO SERVIÇO */}
+              <div className={`section-card ${currentStep === 1 ? 'active-step' : 'inactive-step'}`}>
                 <h4 className="section-title">Dados do Serviço</h4>
                 <div className="form-row">
                   <div className="form-group">
@@ -399,7 +465,9 @@ function AgendarServico() {
                         const servicoSelecionado = Array.isArray(servicos) ? servicos.find(s => Number(s.id) === Number(e.target.value)) : null;
                         setServico(servicoSelecionado || null);
                         setFormData({ ...formData, servico_id: e.target.value });
+                        setError("");
                       }}
+                      disabled={currentStep !== 1}
                       required
                     >
                       <option value="">Selecione um serviço</option>
@@ -410,29 +478,29 @@ function AgendarServico() {
                   </div>
                   <div className="form-group">
                     <label>Endereço Completo *</label>
-                    <input type="text" name="endereco_completo" value={formData.endereco_completo} onChange={handleChange} placeholder="Rua/Avenida, Número" required disabled={loading} />
+                    <input type="text" name="endereco_completo" value={formData.endereco_completo} onChange={handleChange} placeholder="Rua/Avenida, Número" required disabled={currentStep !== 1 || loading} />
                   </div>
                   <div className="form-group">
                     <label>Bairro *</label>
-                    <input type="text" name="bairro" value={formData.bairro} onChange={handleChange} placeholder="Seu bairro" required disabled={loading} />
+                    <input type="text" name="bairro" value={formData.bairro} onChange={handleChange} placeholder="Seu bairro" required disabled={currentStep !== 1 || loading} />
                   </div>
                 </div>
 
                 <div className="form-row">
                   <div className="form-group">
                     <label>Cidade *</label>
-                    <input type="text" name="cidade" value={formData.cidade} onChange={handleChange} placeholder="Maputo" required disabled={loading} />
+                    <input type="text" name="cidade" value={formData.cidade} onChange={handleChange} placeholder="Maputo" required disabled={currentStep !== 1 || loading} />
                   </div>
                   <div className="form-group">
                     <label>Zona *</label>
-                    <select name="zona" value={formData.zona} onChange={handleChange} required disabled={loading}>
+                    <select name="zona" value={formData.zona} onChange={handleChange} required disabled={currentStep !== 1 || loading}>
                       <option value="cidade">Dentro da Cidade</option>
                       <option value="fora_cidade">Fora da Cidade</option>
                     </select>
                   </div>
                   <div className="form-group">
                     <label>Data Desejada *</label>
-                    <input type="date" name="data_agendamento" value={formData.data_agendamento} onChange={handleChange} min={getMinDate()} required disabled={loading} />
+                    <input type="date" name="data_agendamento" value={formData.data_agendamento} onChange={handleChange} min={getMinDate()} required disabled={currentStep !== 1 || loading} />
                   </div>
                 </div>
 
@@ -440,7 +508,7 @@ function AgendarServico() {
                   <div className="form-row">
                     <div className="form-group">
                       <label>Número de Compartimentos *</label>
-                      <input type="number" name="quantidade_compartimentos" min="1" value={formData.quantidade_compartimentos} onChange={handleChange} required disabled={loading} />
+                      <input type="number" name="quantidade_compartimentos" min="1" value={formData.quantidade_compartimentos} onChange={handleChange} required disabled={currentStep !== 1 || loading} />
                       <small>Quantidade de cômodos/áreas a serem tratadas</small>
                     </div>
                   </div>
@@ -448,36 +516,36 @@ function AgendarServico() {
 
                 <div className="form-group">
                   <label>Observações (opcional)</label>
-                  <textarea name="observacoes" rows="3" value={formData.observacoes} onChange={handleChange} placeholder="Informações adicionais sobre o serviço..." disabled={loading} />
+                  <textarea name="observacoes" rows="3" value={formData.observacoes} onChange={handleChange} placeholder="Informações adicionais sobre o serviço..." disabled={currentStep !== 1 || loading} />
                 </div>
               </div>
 
-              {/* SEÇÃO 2: INFORMAÇÕES DE CONTACTO (apenas para não logados) */}
+              {/* 🔥 ETAPA 2: INFORMAÇÕES DE CONTACTO (apenas para não logados) */}
               {!userLogado && (
-                <div className="section-card">
+                <div className={`section-card ${currentStep === 2 ? 'active-step' : 'inactive-step'}`}>
                   <h4 className="section-title">Informações de Contacto</h4>
                   <p className="section-subtext">Preencha os seus dados para que possamos entrar em contacto</p>
                   <div className="form-row">
                     <div className="form-group">
                       <label>Nome Completo *</label>
-                      <input type="text" name="nome_cliente" value={formData.nome_cliente} onChange={handleChange} placeholder="Ex: João Silva" required={!userLogado} disabled={loading} />
+                      <input type="text" name="nome_cliente" value={formData.nome_cliente} onChange={handleChange} placeholder="Ex: João Silva" required={!userLogado} disabled={currentStep !== 2 || loading} />
                     </div>
                     <div className="form-group">
                       <label>E-mail *</label>
-                      <input type="email" name="email_cliente" value={formData.email_cliente} onChange={handleChange} placeholder="Ex: joao@gmail.com" required={!userLogado} disabled={loading} />
+                      <input type="email" name="email_cliente" value={formData.email_cliente} onChange={handleChange} placeholder="Ex: joao@gmail.com" required={!userLogado} disabled={currentStep !== 2 || loading} />
                     </div>
                     <div className="form-group">
                       <label>Contacto Telefónico *</label>
-                      <input type="tel" name="contacto_cliente" value={formData.contacto_cliente} onChange={handleChange} placeholder="Ex: +258 84 000 0000" required={!userLogado} disabled={loading} />
+                      <input type="tel" name="contacto_cliente" value={formData.contacto_cliente} onChange={handleChange} placeholder="Ex: +258 84 000 0000" required={!userLogado} disabled={currentStep !== 2 || loading} />
                     </div>
                   </div>
                 </div>
               )}
 
-              {/* Usuário logado - mostra apenas um resumo */}
-              {userLogado && (
-                <div className="section-card user-logged-info">
-                  <h4 className="section-title">Dados do Utilizador</h4>
+              {/* Usuário logado - mostra apenas um resumo na etapa 2 */}
+              {userLogado && currentStep === 2 && (
+                <div className="section-card active-step">
+                  <h4 className="section-title">Confirmar Dados</h4>
                   <div className="user-info-row">
                     <span><strong>Nome:</strong> {userLogado.name}</span>
                     <span><strong>Email:</strong> {userLogado.email}</span>
@@ -486,9 +554,26 @@ function AgendarServico() {
                 </div>
               )}
 
-              <button type="submit" className="btn-continuar" disabled={loading}>
-                {loading ? "Processando..." : "Continuar →"}
-              </button>
+              {/* 🔥 BOTÕES DE NAVEGAÇÃO */}
+              <div className="form-navigation">
+                {currentStep > 1 && (
+                  <button type="button" className="btn-voltar-etapa" onClick={voltarEtapa} disabled={loading}>
+                    ← Voltar
+                  </button>
+                )}
+                
+                {currentStep === 1 && (
+                  <button type="button" className="btn-continuar" onClick={avancarEtapa} disabled={loading}>
+                    {loading ? "Processando..." : "Continuar →"}
+                  </button>
+                )}
+                
+                {currentStep === 2 && (
+                  <button type="button" className="btn-continuar" onClick={avancarEtapa} disabled={loading}>
+                    {loading ? "Processando..." : (servico?.categoria === "termico" ? "Solicitar Visita →" : "Ver Fatura →")}
+                  </button>
+                )}
+              </div>
             </form>
           </>
         ) : showFatura ? (
@@ -546,7 +631,7 @@ function AgendarServico() {
               </div>
             </div>
             <div className="fatura-botoes">
-              <button className="btn-voltar" onClick={() => setShowFatura(false)} disabled={loading}>← Voltar e Editar</button>
+              <button className="btn-voltar" onClick={voltarEtapa} disabled={loading}>← Voltar e Editar</button>
               <button className="btn-confirmar" onClick={confirmarAgendamento} disabled={loading}>
                 {loading ? "Confirmando..." : "✅ Confirmar e Agendar"}
               </button>
