@@ -17,10 +17,10 @@ body {
   max-width: 100%;
 }
 
-/* ===== CONTAINER ===== */
+/* ===== CONTAINER - 100% LARGURA ===== */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   padding: 0 20px;
   margin: 0 auto;
 }
@@ -182,7 +182,7 @@ body {
 }
 
 /* ============================================================
-   REDES SOCIAIS
+   REDES SOCIAIS - WHATSAPP COM FONTE MAIOR
    ============================================================ */
 .redes-sociais {
   margin-top: 35px;
@@ -191,7 +191,7 @@ body {
 .redes-sociais h3 {
   color: #0B4F6C;
   margin-bottom: 20px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
 }
 
@@ -204,23 +204,23 @@ body {
 .social-link {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 25px;
+  gap: 12px;
+  padding: 14px 28px;
   color: white;
   text-decoration: none;
   border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 1rem;
   transition: all 0.3s ease;
   flex: 1;
-  min-width: 140px;
+  min-width: 150px;
   justify-content: center;
   border: none;
   cursor: pointer;
 }
 
 .social-link svg {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: white !important;
 }
 
@@ -242,13 +242,23 @@ body {
   box-shadow: 0 8px 25px rgba(225, 48, 108, 0.35);
 }
 
+/* 🔥 WHATSAPP - FONTE MAIOR E DESTAQUE */
 .social-link.whatsapp {
   background: linear-gradient(135deg, #25d366, #1da851);
+  font-size: 1.2rem;
+  font-weight: 800;
+  padding: 16px 32px;
+  min-width: 180px;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.social-link.whatsapp svg {
+  font-size: 1.6rem;
 }
 
 .social-link.whatsapp:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
 }
 
 .social-link.linkedin {
@@ -500,7 +510,7 @@ body {
 /* ===== DESKTOP GRANDE (1200px - 1400px) ===== */
 @media (max-width: 1400px) {
   .container {
-    max-width: 1140px;
+    max-width: 100%;
     padding: 0 30px;
   }
 }
@@ -508,7 +518,7 @@ body {
 /* ===== DESKTOP (1024px - 1199px) ===== */
 @media (max-width: 1199px) {
   .container {
-    max-width: 960px;
+    max-width: 100%;
     padding: 0 25px;
   }
   
@@ -528,7 +538,8 @@ body {
 /* ===== TABLET GRANDE (992px - 1023px) ===== */
 @media (max-width: 1023px) {
   .container {
-    max-width: 720px;
+    max-width: 100%;
+    padding: 0 20px;
   }
   
   .contactos-grid {
@@ -623,6 +634,17 @@ body {
     padding: 10px 20px 15px;
     font-size: 0.95rem;
   }
+  
+  /* Ajuste WhatsApp no Tablet */
+  .social-link.whatsapp {
+    font-size: 1.1rem;
+    padding: 14px 28px;
+    min-width: 160px;
+  }
+  
+  .social-link.whatsapp svg {
+    font-size: 1.4rem;
+  }
 }
 
 /* ===== TABLET PEQUENO / MOBILE GRANDE (600px - 767px) ===== */
@@ -683,7 +705,22 @@ body {
     width: 100%;
     min-width: 100%;
     padding: 12px 20px;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
+  }
+  
+  .social-link svg {
+    font-size: 1.2rem !important;
+  }
+  
+  /* 🔥 WhatsApp no Mobile - maior e mais visível */
+  .social-link.whatsapp {
+    font-size: 1.1rem;
+    padding: 16px 24px;
+    min-width: 100%;
+  }
+  
+  .social-link.whatsapp svg {
+    font-size: 1.5rem;
   }
   
   .contactos-form {
@@ -802,12 +839,23 @@ body {
   
   .social-link {
     padding: 10px 16px;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     border-radius: 30px;
   }
   
   .social-link svg {
     font-size: 1rem !important;
+  }
+  
+  /* 🔥 WhatsApp no Mobile Pequeno */
+  .social-link.whatsapp {
+    font-size: 1rem;
+    padding: 14px 20px;
+    min-width: 100%;
+  }
+  
+  .social-link.whatsapp svg {
+    font-size: 1.3rem;
   }
   
   .contactos-form {
@@ -946,6 +994,17 @@ body {
     font-size: 0.9rem !important;
   }
   
+  /* 🔥 WhatsApp no Mobile Muito Pequeno */
+  .social-link.whatsapp {
+    font-size: 0.9rem;
+    padding: 12px 16px;
+    min-width: 100%;
+  }
+  
+  .social-link.whatsapp svg {
+    font-size: 1.1rem;
+  }
+  
   .contactos-form {
     padding: 20px 14px;
     border-radius: 12px;
@@ -1070,6 +1129,17 @@ body {
   
   .social-link svg {
     font-size: 0.8rem !important;
+  }
+  
+  /* 🔥 WhatsApp no Mobile Muito Pequeno */
+  .social-link.whatsapp {
+    font-size: 0.8rem;
+    padding: 10px 14px;
+    min-width: 100%;
+  }
+  
+  .social-link.whatsapp svg {
+    font-size: 1rem;
   }
   
   .contactos-form {
