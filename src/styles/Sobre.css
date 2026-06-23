@@ -1,4 +1,31 @@
-/* Sobre.css - Versão Atualizada e Otimizada */
+/* ============================================================
+   SOBRE.CSS - VERSÃO OTIMIZADA
+   LARGURA 100% EM TODOS OS DISPOSITIVOS
+   PORTUGUÊS DE PORTUGAL
+   SEM FONTES EXTERNAS
+   ============================================================ */
+
+/* ===== RESET GLOBAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
 
 /* ===== BANNER ===== */
 .sobre-banner {
@@ -8,6 +35,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .sobre-banner::before {
@@ -39,17 +67,11 @@
   opacity: 0.95;
 }
 
-/* ===== CONTAINER ===== */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
 /* ===== NOSSA HISTÓRIA ===== */
 .nossa-historia {
   padding: 80px 0;
   background: #ffffff;
+  width: 100%;
 }
 
 .historia-content {
@@ -57,6 +79,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 50px;
   align-items: center;
+  width: 100%;
 }
 
 .historia-text .historia-badge {
@@ -120,6 +143,7 @@
 .feature-icon {
   color: #2c6b4f;
   font-size: 1rem;
+  font-weight: bold;
 }
 
 .historia-vision {
@@ -207,6 +231,7 @@
 .nossa-missao {
   padding: 80px 0;
   background: #f8f9fa;
+  width: 100%;
 }
 
 .section-title {
@@ -227,6 +252,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  width: 100%;
 }
 
 .missao-card {
@@ -246,16 +272,9 @@
 }
 
 .missao-icon {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, #2c6b4f, #1a3a5c);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 2.5rem;
   margin: 0 auto 20px;
-  font-size: 2rem;
-  color: white;
+  display: block;
 }
 
 .missao-card h3 {
@@ -286,21 +305,18 @@
   font-size: 0.95rem;
 }
 
-.valores-list li svg {
-  color: #2c6b4f;
-  font-size: 0.9rem;
-}
-
 /* ===== DIFERENCIAIS ===== */
 .diferenciais {
   padding: 80px 0;
   background: #ffffff;
+  width: 100%;
 }
 
 .diferenciais-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
+  width: 100%;
 }
 
 .diferencial-item {
@@ -320,8 +336,8 @@
 
 .diferencial-icon {
   font-size: 2.5rem;
-  color: #2c6b4f;
   margin-bottom: 15px;
+  display: block;
 }
 
 .diferencial-item h3 {
@@ -337,85 +353,18 @@
   line-height: 1.5;
 }
 
-/* ===== EQUIPE TÉCNICA ===== */
-.equipe-tecnica {
-  padding: 80px 0;
-  background: #f8f9fa;
-}
-
-.equipe-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
-}
-
-.membro-card {
-  background: white;
-  border-radius: 16px;
-  padding: 30px 20px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(0,0,0,0.04);
-}
-
-.membro-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(26, 58, 92, 0.1);
-  border-color: #f8c654;
-}
-
-.membro-foto {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #2c6b4f, #1a3a5c);
-  margin: 0 auto 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 20px rgba(26, 58, 92, 0.2);
-}
-
-.placeholder-icon {
-  font-size: 3rem;
-  color: white;
-  opacity: 0.7;
-}
-
-.membro-card h4 {
-  color: #2d3748;
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-}
-
-.membro-cargo {
-  color: #2c6b4f;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.membro-info {
-  margin-top: 15px;
-  padding-top: 15px;
-  border-top: 1px solid #e2e8f0;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  font-size: 0.85rem;
-  color: #4a5568;
-}
-
 /* ===== CLIENTES/PARCEIROS ===== */
 .clientes-parceiros {
   padding: 80px 0;
   background: #ffffff;
+  width: 100%;
 }
 
 .clientes-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  width: 100%;
 }
 
 .cliente-card {
@@ -470,6 +419,51 @@
   font-size: 0.85rem;
 }
 
+/* ===== TECHVISION TEXT LOGO ===== */
+.techvision-text-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px;
+  background: linear-gradient(135deg, #0a1628 0%, #1a2744 50%, #0d1f3c 100%);
+  border-radius: 12px;
+  min-width: 80px;
+  min-height: 80px;
+  border: 2px solid rgba(138, 180, 248, 0.3);
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 100%;
+}
+
+.techvision-text-logo:hover {
+  transform: scale(1.05);
+  border-color: #4fc3f7;
+  box-shadow: 0 0 30px rgba(79, 195, 247, 0.2);
+}
+
+.techvision-icon {
+  font-size: 1.8rem;
+}
+
+.techvision-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.techvision-tag {
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: #4fc3f7;
+  background: rgba(79, 195, 247, 0.15);
+  padding: 2px 10px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+}
+
 /* ===== ESTATÍSTICAS ===== */
 .estatisticas {
   padding: 60px 0;
@@ -477,6 +471,7 @@
   color: white;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .estatisticas::before {
@@ -497,6 +492,7 @@
   text-align: center;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 .stat-item {
@@ -529,6 +525,7 @@
 .sobre-cta {
   padding: 70px 0;
   background: #ffffff;
+  width: 100%;
 }
 
 .cta-content {
@@ -537,6 +534,7 @@
   padding: 60px 40px;
   border-radius: 20px;
   border: 1px solid rgba(0,0,0,0.04);
+  width: 100%;
 }
 
 .cta-content h2 {
@@ -593,321 +591,284 @@
   transform: translateY(-2px);
 }
 
-/* ===== LOADING ===== */
-.loading {
-  text-align: center;
-  font-size: 1.3rem;
-  color: #2c6b4f;
-  padding: 40px;
-}
+/* ============================================================
+   RESPONSIVIDADE - 100% LARGURA EM TODOS OS DISPOSITIVOS
+   ============================================================ */
 
-/* ===== RESPONSIVIDADE ===== */
+/* === TABLETS (1024px) === */
 @media (max-width: 1024px) {
   .historia-content {
     gap: 30px;
   }
-  
+
   .image-container {
     height: 400px;
   }
-  
+
   .diferenciais-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  .equipe-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
+
   .clientes-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .container {
+    padding: 0 30px;
+  }
 }
 
+/* === TABLETS PEQUENOS / MOBILE GRANDE (768px) === */
 @media (max-width: 768px) {
   .sobre-banner {
     padding: 60px 0 50px;
   }
-  
+
   .sobre-banner h1 {
     font-size: 2.2rem;
   }
-  
+
   .sobre-banner p {
     font-size: 1.1rem;
   }
-  
+
   .historia-content {
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  
+
   .historia-text h2 {
     font-size: 2rem;
   }
-  
+
   .historia-text p {
     font-size: 1rem;
   }
-  
+
   .historia-features {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .image-container {
     height: 350px;
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 100%;
   }
-  
+
   .missao-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
+
   .diferenciais-grid {
     grid-template-columns: 1fr 1fr;
   }
-  
-  .equipe-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  
+
   .clientes-grid {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
-  
+
   .stat-item strong {
     font-size: 2.2rem;
   }
-  
+
   .section-title {
     font-size: 2rem;
   }
-  
+
   .cta-content {
     padding: 40px 25px;
   }
-  
+
   .cta-content h2 {
     font-size: 1.8rem;
   }
+
+  .container {
+    padding: 0 20px;
+  }
 }
 
+/* === MOBILE (480px) === */
 @media (max-width: 480px) {
   .sobre-banner {
     padding: 50px 0 40px;
   }
-  
+
   .sobre-banner h1 {
     font-size: 1.8rem;
   }
-  
+
   .sobre-banner p {
     font-size: 1rem;
+    padding: 0 10px;
   }
-  
+
   .nossa-historia,
   .nossa-missao,
-  .equipe-tecnica,
   .clientes-parceiros,
   .diferenciais,
   .estatisticas {
     padding: 50px 0;
   }
-  
+
   .historia-text h2 {
     font-size: 1.6rem;
   }
-  
+
   .historia-features {
     grid-template-columns: 1fr;
   }
-  
+
   .image-container {
     height: 280px;
   }
-  
+
   .image-overlay span {
     font-size: 1.2rem;
   }
-  
+
+  .image-overlay p {
+    font-size: 0.9rem;
+  }
+
   .missao-card {
     padding: 30px 20px;
   }
-  
+
   .diferenciais-grid {
     grid-template-columns: 1fr;
   }
-  
-  .equipe-grid {
-    grid-template-columns: 1fr;
-    max-width: 320px;
-    margin: 0 auto;
-  }
-  
+
   .clientes-grid {
-    grid-template-columns: 1fr;
-    max-width: 320px;
-    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
   }
-  
+
+  .cliente-card {
+    padding: 15px 10px;
+  }
+
+  .cliente-imagem {
+    height: 90px;
+    padding: 10px;
+  }
+
+  .cliente-card h4 {
+    font-size: 0.85rem;
+  }
+
+  .cliente-card p {
+    font-size: 0.75rem;
+  }
+
+  .cliente-card small {
+    font-size: 0.7rem;
+  }
+
+  /* TechVision mobile */
+  .techvision-text-logo {
+    min-width: 60px;
+    min-height: 60px;
+    padding: 8px;
+  }
+
+  .techvision-icon {
+    font-size: 1.4rem;
+  }
+
+  .techvision-name {
+    font-size: 0.7rem;
+  }
+
+  .techvision-tag {
+    font-size: 0.45rem;
+    padding: 1px 8px;
+  }
+
   .stats-grid {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
-  
+
   .stat-item strong {
     font-size: 1.8rem;
   }
-  
+
   .stat-item span {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
   }
-  
+
+  .stat-icon-wrapper {
+    font-size: 2rem;
+  }
+
   .section-title {
     font-size: 1.8rem;
   }
-  
+
   .section-subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
     margin-bottom: 30px;
+    padding: 0 10px;
   }
-  
+
   .cta-buttons {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .cta-button {
     width: 100%;
     max-width: 280px;
   }
-  
+
+  .cta-content {
+    padding: 30px 20px;
+  }
+
   .cta-content h2 {
     font-size: 1.5rem;
   }
-  
+
   .cta-content p {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
-  
-  .membro-card {
-    padding: 25px 15px;
+
+  .container {
+    padding: 0 15px;
   }
-  
-  .cliente-card {
-    padding: 20px 15px;
+}
+
+/* === MOBILE MUITO PEQUENO (360px) === */
+@media (max-width: 360px) {
+  .clientes-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
-  
+
   .cliente-imagem {
     height: 100px;
-    padding: 10px;
   }
-}
-/* ================================
-   TECHVISION TEXT LOGO (SEM IMAGEM)
-================================= */
-.techvision-text-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  padding: 15px;
-  background: linear-gradient(135deg, #0a1628 0%, #1a2744 50%, #0d1f3c 100%);
-  border-radius: 12px;
-  min-width: 120px;
-  min-height: 100px;
-  border: 2px solid rgba(138, 180, 248, 0.3);
-  transition: all 0.3s ease;
-  width: 100%;
-  height: 100%;
-}
 
-.techvision-text-logo:hover {
-  transform: scale(1.05);
-  border-color: #4fc3f7;
-  box-shadow: 0 0 30px rgba(79, 195, 247, 0.2);
-}
+  .sobre-banner h1 {
+    font-size: 1.5rem;
+  }
 
-.techvision-icon {
-  font-size: 2rem;
-}
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
 
-.techvision-name {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.5px;
-}
+  .stat-item strong {
+    font-size: 1.5rem;
+  }
 
-.techvision-tag {
-  font-size: 0.6rem;
-  font-weight: 600;
-  color: #4fc3f7;
-  background: rgba(79, 195, 247, 0.15);
-  padding: 2px 12px;
-  border-radius: 10px;
-  letter-spacing: 1px;
-}
-
-/* ================================
-   EMOJIS - ESTILOS
-================================= */
-.missao-icon {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-.diferencial-icon {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-.feature-icon {
-  font-size: 1.1rem;
-  margin-right: 8px;
-}
-
-.stat-icon {
-  font-size: 2.5rem;
-}
-
-.valores-list {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-}
-
-.valores-list li {
-  padding: 5px 0;
-  color: #555;
-}
-
-/* ================================
-   CLIENTE IMAGEM
-================================= */
-.cliente-imagem {
-  width: 100%;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #f5f7fa;
-}
-
-.cliente-imagem img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 10px;
+  .container {
+    padding: 0 10px;
+  }
 }

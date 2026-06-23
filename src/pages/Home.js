@@ -6,15 +6,12 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import bannerFundo from "../img/imagem4.jpg";
 
-// Importação das imagens dos clientes
+// Importação das imagens dos clientes (PREMIER LOTO REMOVIDO)
 import yaya from "../img/yaya.png";
 import geniel from "../img/geniel.png";
 import edm from "../img/edm.png";
 import apiex from "../img/apiex.jpeg";
 import neopac from "../img/neopac.jpeg";
-
-// 🔥 NOVA IMPORTAÇÃO: TechVision (sem nome visível)
-import techvisionLogo from "../img/techvision-logo.png"; // ou techvision.png
 
 // Importação da imagem do Mata-Mosquitos
 import mataMosquitos from "../img/mata-mosquitos.png";
@@ -45,43 +42,49 @@ export default function Home() {
     navigate("/agendar");
   };
 
-  // 🔥 DADOS DOS CLIENTES - PREMIER LOTO REMOVIDO, TECHVISION ADICIONADO
+  // DADOS DOS CLIENTES - PREMIER LOTO REMOVIDO, TECHVISION ADICIONADO (SEM IMAGEM)
   const clientesReais = [
     { 
-      nome: "TechVision Solutions", 
+      nome: "TechVision", 
       servico: "Tecnologia e Inovação", 
-      logo: techvisionLogo,
-      alt: "TechVision - Tecnologia e Inovação"
+      logo: null,
+      alt: "TechVision - Tecnologia e Inovação",
+      isTechVision: true
     },
     { 
       nome: "Geniel", 
       servico: "Limpeza Geral", 
       logo: geniel,
-      alt: "Geniel - Limpeza Geral"
+      alt: "Geniel - Limpeza Geral",
+      isTechVision: false
     },
     { 
       nome: "Mercearia YAYA", 
       servico: "Controlo de Pragas", 
       logo: yaya,
-      alt: "Mercearia YAYA - Controlo de Pragas"
+      alt: "Mercearia YAYA - Controlo de Pragas",
+      isTechVision: false
     },
     { 
       nome: "Electricidade de Moçambique", 
       servico: "Controlo de Pragas", 
       logo: edm,
-      alt: "Electricidade de Moçambique - Controlo de Pragas"
+      alt: "Electricidade de Moçambique - Controlo de Pragas",
+      isTechVision: false
     },
     { 
       nome: "APIEX", 
       servico: "Controlo de Pragas", 
       logo: apiex,
-      alt: "APIEX - Controlo de Pragas"
+      alt: "APIEX - Controlo de Pragas",
+      isTechVision: false
     },
     { 
       nome: "NEOPAC PLUS, LDA", 
       servico: "Controlo de Pragas", 
       logo: neopac,
-      alt: "NEOPAC PLUS, LDA - Controlo de Pragas"
+      alt: "NEOPAC PLUS, LDA - Controlo de Pragas",
+      isTechVision: false
     },
   ];
 
@@ -115,11 +118,19 @@ export default function Home() {
             {clientesReais.map((cliente, index) => (
               <div key={index} className="cliente-item">
                 <div className="cliente-logo-container">
-                  <img 
-                    src={cliente.logo} 
-                    alt={cliente.alt}
-                    className="cliente-logo"
-                  />
+                  {cliente.isTechVision ? (
+                    <div className="techvision-text-logo">
+                      <span className="techvision-icon">💻</span>
+                      <span className="techvision-name">TechVision</span>
+                      <span className="techvision-tag">TECH</span>
+                    </div>
+                  ) : (
+                    <img 
+                      src={cliente.logo} 
+                      alt={cliente.alt}
+                      className="cliente-logo"
+                    />
+                  )}
                 </div>
                 <p className="cliente-servico">{cliente.servico}</p>
               </div>
@@ -302,15 +313,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 🔥 SECÇÃO: DEPOIMENTOS - PREMIER LOTO REMOVIDO */}
+      {/* SECÇÃO: DEPOIMENTOS - PREMIER LOTO REMOVIDO */}
       <section className="home-testimonials">
         <div className="container">
           <h2>O que os nossos clientes dizem</h2>
           <div className="testimonials-grid">
             <div className="testimonial-item">
-              <p className="testimonial-text">"A TechVision Solutions é parceira da APP All Pest Protect na modernização dos seus serviços. Inovação e tecnologia a favor do controlo de pragas."</p>
+              <p className="testimonial-text">"A TechVision é parceira da APP All Pest Protect na modernização dos seus serviços. Inovação e tecnologia a favor do controlo de pragas."</p>
               <div className="testimonial-author">
-                <strong>TechVision Solutions</strong>
+                <strong>TechVision</strong>
                 <span>Tecnologia e Inovação</span>
               </div>
             </div>

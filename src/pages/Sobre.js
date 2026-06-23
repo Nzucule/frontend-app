@@ -16,7 +16,7 @@ export default function Sobre() {
   const clientes = [
     {
       id: 1,
-      nome: "TechVision Solutions",
+      nome: "TechVision",
       cargo: "Tecnologia e Inovação",
       imagem: null,
       descricao: "Parceiro tecnológico em soluções digitais e transformação digital",
@@ -90,19 +90,19 @@ export default function Sobre() {
               </p>
               <div className="historia-features">
                 <div className="feature-item">
-                  <span className="feature-icon">✅</span>
+                  <span className="feature-icon">✓</span>
                   <span>Equipa Especializada</span>
                 </div>
                 <div className="feature-item">
-                  <span className="feature-icon">✅</span>
+                  <span className="feature-icon">✓</span>
                   <span>Tecnologia Avançada</span>
                 </div>
                 <div className="feature-item">
-                  <span className="feature-icon">✅</span>
+                  <span className="feature-icon">✓</span>
                   <span>Produtos Certificados</span>
                 </div>
                 <div className="feature-item">
-                  <span className="feature-icon">✅</span>
+                  <span className="feature-icon">✓</span>
                   <span>Atendimento 24/7</span>
                 </div>
               </div>
@@ -156,11 +156,11 @@ export default function Sobre() {
               <div className="missao-icon">⚖️</div>
               <h3>Valores</h3>
               <ul className="valores-list">
-                <li>✅ Qualidade e Excelência</li>
-                <li>✅ Ética Profissional</li>
-                <li>✅ Responsabilidade Ambiental</li>
-                <li>✅ Dinamismo e Proatividade</li>
-                <li>✅ Compromisso com o Cliente</li>
+                <li>✓ Qualidade e Excelência</li>
+                <li>✓ Ética Profissional</li>
+                <li>✓ Responsabilidade Ambiental</li>
+                <li>✓ Dinamismo e Proatividade</li>
+                <li>✓ Compromisso com o Cliente</li>
               </ul>
             </div>
           </div>
@@ -230,33 +230,25 @@ export default function Sobre() {
         <div className="container">
           <div className="stats-grid">
             <div className="stat-item">
-              <div className="stat-icon-wrapper">
-                <span className="stat-icon">📊</span>
-              </div>
+              <div className="stat-icon-wrapper">📊</div>
               <strong>2022</strong>
               <span>Ano de Fundação</span>
             </div>
 
             <div className="stat-item">
-              <div className="stat-icon-wrapper">
-                <span className="stat-icon">👥</span>
-              </div>
+              <div className="stat-icon-wrapper">👥</div>
               <strong>500+</strong>
               <span>Clientes Atendidos</span>
             </div>
 
             <div className="stat-item">
-              <div className="stat-icon-wrapper">
-                <span className="stat-icon">🏆</span>
-              </div>
+              <div className="stat-icon-wrapper">🏆</div>
               <strong>98%</strong>
               <span>Taxa de Satisfação</span>
             </div>
 
             <div className="stat-item">
-              <div className="stat-icon-wrapper">
-                <span className="stat-icon">🕐</span>
-              </div>
+              <div className="stat-icon-wrapper">🕐</div>
               <strong>24/7</strong>
               <span>Suporte ao Cliente</span>
             </div>
