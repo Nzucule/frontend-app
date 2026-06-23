@@ -90,19 +90,19 @@ export default function Sobre() {
               </p>
               <div className="historia-features">
                 <div className="feature-item">
-                  <span className="feature-icon">✓</span>
+                  <span className="feature-icon check">✓</span>
                   <span>Equipa Especializada</span>
                 </div>
                 <div className="feature-item">
-                  <span className="feature-icon">✓</span>
+                  <span className="feature-icon check">✓</span>
                   <span>Tecnologia Avançada</span>
                 </div>
                 <div className="feature-item">
-                  <span className="feature-icon">✓</span>
+                  <span className="feature-icon check">✓</span>
                   <span>Produtos Certificados</span>
                 </div>
                 <div className="feature-item">
-                  <span className="feature-icon">✓</span>
+                  <span className="feature-icon check">✓</span>
                   <span>Atendimento 24/7</span>
                 </div>
               </div>
@@ -135,7 +135,7 @@ export default function Sobre() {
           <p className="section-subtitle">O que nos move e nos guia no dia a dia</p>
           <div className="missao-grid">
             <div className="missao-card">
-              <div className="missao-icon">🎯</div>
+              <div className="missao-icon missao-icon-target"></div>
               <h3>Missão</h3>
               <p>
                 Prestar apoio a empresas e singulares na prevenção e controlo sistemático de pragas e limpeza, 
@@ -144,7 +144,7 @@ export default function Sobre() {
             </div>
 
             <div className="missao-card">
-              <div className="missao-icon">👁️</div>
+              <div className="missao-icon missao-icon-eye"></div>
               <h3>Visão</h3>
               <p>
                 Ser referência no setor de controlo de pragas e limpeza, reconhecida pela qualidade dos serviços, 
@@ -153,7 +153,7 @@ export default function Sobre() {
             </div>
 
             <div className="missao-card">
-              <div className="missao-icon">⚖️</div>
+              <div className="missao-icon missao-icon-scale"></div>
               <h3>Valores</h3>
               <ul className="valores-list">
                 <li>✓ Qualidade e Excelência</li>
@@ -174,22 +174,22 @@ export default function Sobre() {
           <p className="section-subtitle">O que nos torna a escolha certa</p>
           <div className="diferenciais-grid">
             <div className="diferencial-item">
-              <div className="diferencial-icon">🏅</div>
+              <div className="diferencial-icon dif-icon-medal"></div>
               <h3>Excelência Comprovada</h3>
               <p>Mais de 500 clientes atendidos com 98% de satisfação</p>
             </div>
             <div className="diferencial-item">
-              <div className="diferencial-icon">🌿</div>
+              <div className="diferencial-icon dif-icon-leaf"></div>
               <h3>Produtos Eco-Friendly</h3>
               <p>Certificados e seguros para pessoas e animais</p>
             </div>
             <div className="diferencial-item">
-              <div className="diferencial-icon">⏰</div>
+              <div className="diferencial-icon dif-icon-clock"></div>
               <h3>Atendimento Rápido</h3>
               <p>Resposta em até 24 horas para emergências</p>
             </div>
             <div className="diferencial-item">
-              <div className="diferencial-icon">🏆</div>
+              <div className="diferencial-icon dif-icon-trophy"></div>
               <h3>Garantia de 6 Meses</h3>
               <p>Assistência gratuita em caso de reincidência</p>
             </div>
@@ -208,7 +208,7 @@ export default function Sobre() {
                 <div className="cliente-imagem">
                   {cliente.isTechVision ? (
                     <div className="techvision-text-logo">
-                      <span className="techvision-icon">💻</span>
+                      <span className="techvision-icon">⌨️</span>
                       <span className="techvision-name">TechVision</span>
                       <span className="techvision-tag">TECH</span>
                     </div>
@@ -230,25 +230,25 @@ export default function Sobre() {
         <div className="container">
           <div className="stats-grid">
             <div className="stat-item">
-              <div className="stat-icon-wrapper">📊</div>
+              <div className="stat-icon-wrapper stat-icon-calendar"></div>
               <strong>2022</strong>
               <span>Ano de Fundação</span>
             </div>
 
             <div className="stat-item">
-              <div className="stat-icon-wrapper">👥</div>
+              <div className="stat-icon-wrapper stat-icon-users"></div>
               <strong>500+</strong>
               <span>Clientes Atendidos</span>
             </div>
 
             <div className="stat-item">
-              <div className="stat-icon-wrapper">🏆</div>
+              <div className="stat-icon-wrapper stat-icon-trophy"></div>
               <strong>98%</strong>
               <span>Taxa de Satisfação</span>
             </div>
 
             <div className="stat-item">
-              <div className="stat-icon-wrapper">🕐</div>
+              <div className="stat-icon-wrapper stat-icon-clock"></div>
               <strong>24/7</strong>
               <span>Suporte ao Cliente</span>
             </div>

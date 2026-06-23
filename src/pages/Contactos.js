@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import "../styles/Contactos.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
-// ÍCONES CORRETOS
-import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock } from "react-icons/fa";
 
 export default function Contactos() {
   const [formData, setFormData] = useState({
@@ -22,12 +20,33 @@ export default function Contactos() {
     });
   };
 
+  // 🔥 ENVIAR MENSAGEM PARA WHATSAPP
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Dados do formulário:", formData);
 
-    alert("Mensagem enviada com sucesso! Entraremos em contacto em breve.");
+    // Construir a mensagem para o WhatsApp
+    const mensagemWhatsApp = `Olá! 👋\n\n` +
+      `📌 *Nova mensagem do site APP All Pest Protect*\n\n` +
+      `👤 *Nome:* ${formData.nome}\n` +
+      `📧 *Email:* ${formData.email}\n` +
+      `📞 *Telefone:* ${formData.telefone || "Não informado"}\n` +
+      `📋 *Assunto:* ${formData.assunto}\n` +
+      `💬 *Mensagem:* ${formData.mensagem}\n\n` +
+      `📅 Enviado em: ${new Date().toLocaleString('pt-PT')}`;
 
+    // Codificar a mensagem para URL
+    const mensagemCodificada = encodeURIComponent(mensagemWhatsApp);
+
+    // Número do WhatsApp (já tens o número)
+    const numeroWhatsApp = "258873830003";
+
+    // Criar link do WhatsApp
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
+
+    // Abrir WhatsApp em nova aba
+    window.open(urlWhatsApp, "_blank");
+
+    // Limpar formulário
     setFormData({
       nome: "",
       email: "",
@@ -62,6 +81,9 @@ export default function Contactos() {
               <h2>Informações de Contacto</h2>
 
               <div className="info-item">
+                <div className="info-icon">
+                  <FaMapMarkerAlt />
+                </div>
                 <div className="info-content">
                   <h3>Sede</h3>
                   <p>Av. Maguinguana nº 1742, r/c<br />Maputo – Moçambique</p>
@@ -69,20 +91,35 @@ export default function Contactos() {
               </div>
 
               <div className="info-item">
+                <div className="info-icon">
+                  <FaPhone />
+                </div>
                 <div className="info-content">
                   <h3>Telefones</h3>
-                  <p>+258 82 299 6958<br />+258 87 383 0003</p>
+                  <p>
+                    <a href="tel:+258822996958">+258 82 299 6958</a><br />
+                    <a href="tel:+258873830003">+258 87 383 0003</a>
+                  </p>
                 </div>
               </div>
 
               <div className="info-item">
+                <div className="info-icon">
+                  <FaEnvelope />
+                </div>
                 <div className="info-content">
                   <h3>Email</h3>
-                  <p>comercial@appmoz.co.mz<br />maxi4u.offz@gmail.com</p>
+                  <p>
+                    <a href="mailto:comercial@appmoz.co.mz">comercial@appmoz.co.mz</a><br />
+                    <a href="mailto:maxi4u.offz@gmail.com">maxi4u.offz@gmail.com</a>
+                  </p>
                 </div>
               </div>
 
               <div className="info-item">
+                <div className="info-icon">
+                  <FaClock />
+                </div>
                 <div className="info-content">
                   <h3>Horário</h3>
                   <p>
@@ -94,24 +131,9 @@ export default function Contactos() {
               </div>
 
               {/* REDES SOCIAIS */}
-              <div
-  className="redes-sociais"
-  style={{
-    display: "block",
-    visibility: "visible",
-    opacity: 1
-  }}
->
+              <div className="redes-sociais">
                 <h3>Siga-nos</h3>
-
-               <div
-  className="social-links"
-  style={{
-    display: "flex",
-    visibility: "visible",
-    opacity: 1
-  }}
->
+                <div className="social-links">
                   <a
                     href="https://facebook.com/allpestprotect/"
                     className="social-link facebook"
@@ -138,7 +160,6 @@ export default function Contactos() {
                   >
                     <FaWhatsapp /> WhatsApp
                   </a>
-
                 </div>
               </div>
             </div>
@@ -146,15 +167,18 @@ export default function Contactos() {
             {/* FORMULÁRIO */}
             <div className="contactos-form">
               <h2>Envie-nos uma Mensagem</h2>
+              <p className="form-subtitle">
+                Preencha o formulário e enviaremos a sua mensagem diretamente para o nosso WhatsApp
+              </p>
 
               <form onSubmit={handleSubmit}>
-
                 <div className="form-row">
                   <div className="form-group">
                     <label>Nome *</label>
                     <input
                       type="text"
                       name="nome"
+                      placeholder="Seu nome completo"
                       value={formData.nome}
                       onChange={handleChange}
                       required
@@ -166,6 +190,7 @@ export default function Contactos() {
                     <input
                       type="email"
                       name="email"
+                      placeholder="seu@email.com"
                       value={formData.email}
                       onChange={handleChange}
                       required
@@ -179,6 +204,7 @@ export default function Contactos() {
                     <input
                       type="tel"
                       name="telefone"
+                      placeholder="84 123 4567"
                       value={formData.telefone}
                       onChange={handleChange}
                     />
@@ -205,7 +231,8 @@ export default function Contactos() {
                   <label>Mensagem *</label>
                   <textarea
                     name="mensagem"
-                    rows="6"
+                    rows="5"
+                    placeholder="Escreva a sua mensagem aqui..."
                     value={formData.mensagem}
                     onChange={handleChange}
                     required
@@ -213,12 +240,44 @@ export default function Contactos() {
                 </div>
 
                 <button type="submit" className="btn-enviar">
-                  Enviar Mensagem
+                  <FaWhatsapp style={{ marginRight: "10px" }} />
+                  Enviar via WhatsApp
                 </button>
 
+                <p className="form-nota">
+                  Ao enviar, será redirecionado para o WhatsApp com a mensagem pré-preenchida.
+                </p>
               </form>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* 🔥 MAPA - ADICIONADO */}
+      <section className="mapa-section">
+        <div className="container">
+          <h2>📍 Onde Estamos</h2>
+          <p className="section-subtitle">Visite-nos na nossa sede em Maputo</p>
+          <div className="mapa-container">
+            <div className="mapa-placeholder">
+              <h3>
+                <FaMapMarkerAlt /> APP All Pest Protect - Maputo
+              </h3>
+              <p>📍 Av. Maguinguana nº 1742, r/c, Maputo – Moçambique</p>
+              <div className="mapa-image">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126837.123456789!2d32.5!3d-25.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee4a123456789ab%3A0x123456789abcdef!2sMaputo%2C+Mo%C3%A7ambique!5e0!3m2!1spt-PT!2spt!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Localização APP All Pest Protect - Maputo, Moçambique"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

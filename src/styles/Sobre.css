@@ -872,3 +872,416 @@ body {
     padding: 0 10px;
   }
 }
+/* ============================================================
+   ÍCONES CSS - SEM EMOJIS
+   ============================================================ */
+
+/* ----- Ícones da Missão, Visão e Valores ----- */
+.missao-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #2c6b4f, #1a3a5c);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  position: relative;
+}
+
+/* Ícone Target (Missão) */
+.missao-icon-target::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 4px solid white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.missao-icon-target::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Ícone Eye (Visão) */
+.missao-icon-eye::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 18px;
+  border: 4px solid white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.missao-icon-eye::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Ícone Scale (Valores) */
+.missao-icon-scale::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 30px;
+  background: white;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.missao-icon-scale::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 30px;
+  background: white;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+
+/* ----- Ícones dos Diferenciais ----- */
+.diferencial-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 15px;
+  position: relative;
+}
+
+/* Medalha */
+.dif-icon-medal::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #2c6b4f;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dif-icon-medal::after {
+  content: '★';
+  font-size: 1.5rem;
+  color: #f8c654;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Folha */
+.dif-icon-leaf::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 0 50% 50% 50%;
+  background: #2c6b4f;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.dif-icon-leaf::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background: #2c6b4f;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(20deg);
+}
+
+/* Relógio */
+.dif-icon-clock::before {
+  content: '';
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border: 4px solid #2c6b4f;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dif-icon-clock::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 15px;
+  background: #2c6b4f;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  border-radius: 2px;
+}
+
+/* Troféu */
+.dif-icon-trophy::before {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: 4px solid #f8c654;
+  border-radius: 50%;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dif-icon-trophy::after {
+  content: '🏆';
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ----- Ícones das Estatísticas ----- */
+.stat-icon-wrapper {
+  font-size: 0;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 10px;
+  position: relative;
+}
+
+/* Calendário */
+.stat-icon-calendar::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 35px;
+  border: 3px solid rgba(255,255,255,0.8);
+  border-radius: 4px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.stat-icon-calendar::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 4px;
+  background: rgba(255,255,255,0.8);
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+}
+
+/* Usuários */
+.stat-icon-users::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.8);
+  border-radius: 50%;
+  top: 35%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+}
+
+.stat-icon-users::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.8);
+  border-radius: 50% 50% 0 0;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ----- TechVision Text Logo (sem emojis) ----- */
+.techvision-text-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 15px;
+  background: linear-gradient(135deg, #0a1628 0%, #1a2744 50%, #0d1f3c 100%);
+  border-radius: 12px;
+  min-width: 100px;
+  min-height: 80px;
+  border: 2px solid rgba(138, 180, 248, 0.3);
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 100%;
+}
+
+.techvision-text-logo:hover {
+  transform: scale(1.05);
+  border-color: #4fc3f7;
+  box-shadow: 0 0 30px rgba(79, 195, 247, 0.2);
+}
+
+.techvision-icon {
+  font-size: 1.8rem;
+}
+
+.techvision-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.techvision-tag {
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: #4fc3f7;
+  background: rgba(79, 195, 247, 0.15);
+  padding: 2px 10px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+}
+
+/* ----- Check Icon ----- */
+.feature-icon.check {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2c6b4f;
+}
+
+.valores-list li::before {
+  content: '✓';
+  color: #2c6b4f;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.valores-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.valores-list li {
+  padding: 5px 0;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   RESPONSIVIDADE PARA ÍCONES
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .missao-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .missao-icon-target::before {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .missao-icon-target::after {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .missao-icon-eye::before {
+    width: 25px;
+    height: 15px;
+  }
+  
+  .missao-icon-eye::after {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .missao-icon-scale::before,
+  .missao-icon-scale::after {
+    height: 25px;
+  }
+  
+  .diferencial-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .stat-icon-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .stat-icon-calendar::before {
+    width: 35px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .missao-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .diferencial-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .stat-icon-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .stat-icon-calendar::before {
+    width: 30px;
+    height: 25px;
+  }
+  
+  .techvision-text-logo {
+    min-width: 70px;
+    min-height: 60px;
+    padding: 10px;
+  }
+  
+  .techvision-icon {
+    font-size: 1.4rem;
+  }
+  
+  .techvision-name {
+    font-size: 0.7rem;
+  }
+  
+  .techvision-tag {
+    font-size: 0.45rem;
+    padding: 1px 8px;
+  }
+}
