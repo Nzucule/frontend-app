@@ -47,9 +47,9 @@ export default function Home() {
   const clientesReais = [
     { 
       nome: "Premier Loto", 
-      servico: "Desinfeção e Controlo de Pragas", 
+      servico: "Desinfecção e Controlo de Pragas", 
       logo: loto,
-      alt: "Premier Loto - Desinfeção e Controlo de Pragas"
+      alt: "Premier Loto - Desinfecção e Controlo de Pragas"
     },
     { 
       nome: "Geniel", 
@@ -94,7 +94,7 @@ export default function Home() {
       >
         <div className="home-banner-content">
           <h1>Controlo Integrado de Pragas</h1>
-          <p>Proteção completa  para residências, escritórios, centros comerciais, hotéis e indústrias.</p>
+          <p>Protecção completa para residências, escritórios, centros comerciais, hotéis e indústrias.</p>
           <div className="banner-buttons">
             <button onClick={irParaAgendamento} className="home-button">
               Agendar Intervenção
@@ -104,11 +104,11 @@ export default function Home() {
         </div>
       </div>
 
-      {/* SEÇÃO: NOSSOS CLIENTES */}
+      {/* SECÇÃO: NOSSOS CLIENTES */}
       <section className="home-clientes">
         <div className="container">
           <h2>Empresas que Confiam em Nós</h2>
-          <p className="section-subtitle">Parceiros de confiança que escolheram a APP All Pest Protect para proteger seus ambientes</p>
+          <p className="section-subtitle">Parceiros de confiança que escolheram a APP All Pest Protect para proteger os seus ambientes</p>
           <div className="clientes-grid">
             {clientesReais.map((cliente, index) => (
               <div key={index} className="cliente-item">
@@ -126,34 +126,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEÇÃO INSTITUCIONAL */}
+      {/* SECÇÃO INSTITUCIONAL */}
       <section className="home-brand-presentation">
         <div className="container">
           <div className="brand-intro-text">
-            <span className="text-highlight">Líder em Controlo de Pragas em Moçambique </span>
+            <span className="text-highlight">Líder em Controlo de Pragas em Moçambique</span>
             <h2>APP All Pest Protect</h2>
             <p>
               Somos uma empresa moçambicana sediada na Cidade de Maputo, presentes no mercado desde 2022, 
-              actuando nas áreas de fumigação, controlo integrado de pragas e limpeza. Focamo-nos na prestação 
+              a actuar nas áreas de fumigação, controlo integrado de pragas e limpeza. Focamo-nos na prestação 
               de serviços de qualidade, utilizando técnicas modernas e especializadas.
             </p>
             <p className="brand-vision">
-              <strong>Nossa Missão:</strong> Garantir ambientes seguros e livres de pragas, promovendo saúde, 
+              <strong>A Nossa Missão:</strong> Garantir ambientes seguros e livres de pragas, promovendo saúde, 
               bem-estar e conforto para famílias e empresas moçambicanas.
             </p>
             <p className="brand-vision">
-              <strong>Nossa Visão:</strong> Ser a referência nacional em controlo de pragas, reconhecida pela 
+              <strong>A Nossa Visão:</strong> Ser a referência nacional em controlo de pragas, reconhecida pela 
               excelência técnica, inovação e compromisso com a satisfação dos clientes.
             </p>
           </div>
         </div>
       </section>
 
-      {/* SEÇÃO: SINAIS DE INFESTAÇÃO */}
+      {/* SECÇÃO: SINAIS DE INFESTAÇÃO */}
       <section className="home-infestation-signs">
         <div className="container">
           <h2>Como Identificar uma Infestação de Pragas?</h2>
-          <p className="section-subtitle">Fique atento aos sinais e actue rapidamente</p>
+          <p className="section-subtitle">Esteja atento aos sinais e aja rapidamente</p>
           <div className="signs-grid">
             <div className="sign-item">
               <div className="sign-number">01</div>
@@ -179,7 +179,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEÇÃO: ESTATÍSTICAS */}
+      {/* SECÇÃO: ESTATÍSTICAS */}
       <section className="home-stats">
         <div className="container">
           <div className="stats-grid">
@@ -203,14 +203,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Seção Serviços */}
+      {/* Secção Serviços */}
       <section id="servicos" className="home-services">
         <div className="container">
-          <h2>Nossos Serviços</h2>
+          <h2>Os Nossos Serviços</h2>
           <p className="section-subtitle">Soluções completas para cada tipo de praga</p>
 
           {loading ? (
-            <div className="loading">Carregando serviços...</div>
+            <div className="loading">A carregar serviços...</div>
           ) : (
             <div className="services-grid">
               {Array.isArray(servicos) && servicos.slice(0, 3).map((s) => (
@@ -241,11 +241,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEÇÃO: MÉTODOS DE CONTROLO */}
+      {/* SECÇÃO: MÉTODOS DE CONTROLO */}
       <section className="home-control-methods">
         <div className="container">
-          <h2>Nossos Métodos de Controlo de Pragas</h2>
-          <p className="section-subtitle">Tecnologia e expertise para resultados eficazes</p>
+          <h2>Os Nossos Métodos de Controlo de Pragas</h2>
+          <p className="section-subtitle">Tecnologia e experiência para resultados eficazes</p>
           <div className="methods-grid">
             <div className="method-item">
               <div className="method-number">1</div>
@@ -271,10 +271,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEÇÃO: DIFERENCIAIS */}
+      {/* SECÇÃO: DIFERENCIAIS */}
       <section className="home-features-pub">
         <div className="container">
-          <h2>Por que escolher os nossos serviços?</h2>
+          <h2>Porquê escolher os nossos serviços?</h2>
           <div className="features-grid">
             <div className="feature-item">
               <div className="feature-number">✓</div>
@@ -293,14 +293,14 @@ export default function Home() {
             </div>
             <div className="feature-item">
               <div className="feature-number">✓</div>
-              <h3>Equipe Qualificada</h3>
+              <h3>Equipa Qualificada</h3>
               <p>Contamos com técnicos treinados e certificados para garantir serviços de excelência e segurança.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SEÇÃO: DEPOIMENTOS */}
+      {/* SECÇÃO: DEPOIMENTOS */}
       <section className="home-testimonials">
         <div className="container">
           <h2>O que os nossos clientes dizem</h2>
@@ -309,7 +309,7 @@ export default function Home() {
               <p className="testimonial-text">"A APP All Pest Protect é nossa parceira há mais de 2 anos. O serviço é impecável e sempre pontual. Recomendamos a todas as empresas."</p>
               <div className="testimonial-author">
                 <strong>Premier Loto</strong>
-                <span>Desinfeção e Controlo de Pragas</span>
+                <span>Desinfecção e Controlo de Pragas</span>
               </div>
             </div>
             <div className="testimonial-item">
@@ -320,7 +320,7 @@ export default function Home() {
               </div>
             </div>
             <div className="testimonial-item">
-              <p className="testimonial-text">"A Electricidade de Moçambique confia na APP All Pest Protect para manter nossas instalações livres de pragas. Serviço profissional e confiável."</p>
+              <p className="testimonial-text">"A Electricidade de Moçambique confia na APP All Pest Protect para manter as nossas instalações livres de pragas. Serviço profissional e confiável."</p>
               <div className="testimonial-author">
                 <strong>Electricidade de Moçambique</strong>
                 <span>Controlo de Pragas</span>
@@ -330,13 +330,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEÇÃO: BANNER DE PROMOÇÃO */}
+      {/* SECÇÃO: BANNER DE PROMOÇÃO */}
       <section className="home-promo-banner">
         <div className="promo-container">
           <div className="promo-text">
             <span>PLANO DE PROTEÇÃO ANUAL</span>
-            <h2>Proteja seu Ambiente Durante Todo o Ano</h2>
-            <p>Assine nosso plano anual e ganhe <strong>vistorias trimestrais gratuitas</strong> + <strong>desconto de 10%</strong> em serviços emergenciais. Inclui relatórios detalhados e certificado de controlo de pragas.</p>
+            <h2>Proteja o seu Ambiente Durante Todo o Ano</h2>
+            <p>Assine o nosso plano anual e ganhe <strong>vistorias trimestrais gratuitas</strong> + <strong>desconto de 10%</strong> em serviços emergenciais. Inclui relatórios detalhados e certificado de controlo de pragas.</p>
           </div>
           <div className="promo-action">
             <Link to="/contactos" className="pub-btn-promo">Solicitar Proposta</Link>
@@ -344,7 +344,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEÇÃO: PREVENÇÃO DE PRAGAS - DICAS */}
+      {/* SECÇÃO: PREVENÇÃO DE PRAGAS - DICAS */}
       <section className="home-prevention-tips">
         <div className="container">
           <h2>Dicas para Prevenir Infestações de Pragas</h2>
@@ -382,14 +382,14 @@ export default function Home() {
               <span className="tip-number">5</span>
               <div>
                 <h3>Mantenha Jardins e Quintais Limpos</h3>
-                <p>Remova folhas secas, entulhos e mantenha a grama cortada. Jardins descuidados são abrigo para pragas.</p>
+                <p>Remova folhas secas, entulhos e mantenha a relva cortada. Jardins descuidados são abrigo para pragas.</p>
               </div>
             </div>
             <div className="tip-item">
               <span className="tip-number">6</span>
               <div>
                 <h3>Agende Vistorias Periódicas</h3>
-                <p>Não espere ter uma infestação. Agende vistorias preventivas com especialistas para detectar problemas precocemente.</p>
+                <p>Não espere ter uma infestação. Agende vistorias preventivas com especialistas para detetar problemas precocemente.</p>
               </div>
             </div>
           </div>
@@ -401,7 +401,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEÇÃO: PRAGAS URBANAS COMUNS */}
+      {/* SECÇÃO: PRAGAS URBANAS COMUNS */}
       <section className="home-pest-types">
         <div className="container">
           <h2>Pragas Urbanas que Eliminamos</h2>
@@ -421,7 +421,7 @@ export default function Home() {
             </div>
             <div className="pest-type-item">
               <h3>Formigas</h3>
-              <p>Eliminação de formigas com tecnologia de iscas que destroem a colônia inteira.</p>
+              <p>Eliminação de formigas com tecnologia de iscas que destroem a colónia inteira.</p>
             </div>
             <div className="pest-type-item">
               <h3>Moscas</h3>
@@ -447,7 +447,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEÇÃO: MATA-MOSQUITOS */}
+      {/* SECÇÃO: MATA-MOSQUITOS */}
       <section className="home-product-pub">
         <div className="container product-flex">
           <div className="product-info-text">
@@ -506,7 +506,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEÇÃO: ÁREAS DE ATUAÇÃO */}
+      {/* SECÇÃO: ÁREAS DE ATUAÇÃO */}
       <section className="home-areas">
         <div className="container">
           <h2>Áreas de Atuação</h2>
@@ -532,12 +532,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEÇÃO CTA FINAL */}
+      {/* SECÇÃO CTA FINAL */}
       <section className="home-cta">
         <div className="container">
           <div className="cta-content">
             <h2>Ambiente Seguro e Livre de Pragas</h2>
-            <p>Agende uma vistoria gratuita e receba um orçamento personalizado. Proteja sua família ou empresa hoje mesmo!</p>
+            <p>Agende uma vistoria gratuita e receba um orçamento personalizado. Proteja a sua família ou empresa hoje mesmo!</p>
             <div className="cta-buttons">
               <Link to="/contactos" className="cta-button">Solicitar Orçamento</Link>
               <button onClick={irParaAgendamento} className="cta-button secondary">

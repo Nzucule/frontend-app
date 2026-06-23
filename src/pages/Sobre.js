@@ -1,41 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../styles/Sobre.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import imagem from "../img/job.jpg";
-import { 
-  FaBullseye, 
-  FaEye, 
-  FaBalanceScale, 
-  FaUsers, 
-  FaChartLine, 
-  FaShieldAlt, 
-  FaMedal, 
-  FaAward,
-  FaCheckCircle,
-  FaClock,
-  FaHandshake,
-  FaLeaf
-} from "react-icons/fa";
-import { GiAchievement, GiTeamIdea, GiGrowing } from "react-icons/gi";
 
 // Importação das imagens dos clientes
 import yaya from "../img/yaya.png";
-import loto from "../img/loto.png";
 import geniel from "../img/geniel.png";
 import edm from "../img/edm.png";
 import apiex from "../img/apiex.jpeg";
 import neopac from "../img/neopac.jpeg";
 
 export default function Sobre() {
-  // Dados dos clientes/parceiros
+  // Dados dos clientes/parceiros (COM TECHVISION NO LUGAR DO PREMIER LOTO)
   const clientes = [
     {
       id: 1,
-      nome: "Premier Loto",
-      cargo: "Desinfeção e Controlo de Pragas",
-      imagem: loto,
-      descricao: "Parceiro estratégico na área de desinfeção e controlo de pragas"
+      nome: "TechVision Solutions",
+      cargo: "Tecnologia e Inovação",
+      imagem: null,
+      descricao: "Parceiro tecnológico em soluções digitais e transformação digital"
     },
     {
       id: 2,
@@ -74,34 +58,6 @@ export default function Sobre() {
     }
   ];
 
-  // Dados da equipe técnica
-  const equipeTecnica = [
-    {
-      nome: "Eng. Carlos Mendes",
-      cargo: "Director Técnico",
-      especialidade: "Controlo Integrado de Pragas",
-      experiencia: "12 anos"
-    },
-    {
-      nome: "Dra. Ana Silva",
-      cargo: "Coordenadora de Operações",
-      especialidade: "Biossegurança Ambiental",
-      experiencia: "8 anos"
-    },
-    {
-      nome: "Téc. João Santos",
-      cargo: "Especialista em Fumigação",
-      especialidade: "Controlo de Roedores e Insetos",
-      experiencia: "6 anos"
-    },
-    {
-      nome: "Téc. Maria Oliveira",
-      cargo: "Especialista em Desinfeção",
-      especialidade: "Higiene e Saneamento",
-      experiencia: "5 anos"
-    }
-  ];
-
   return (
     <>
       <Navbar />
@@ -133,19 +89,19 @@ export default function Sobre() {
               </p>
               <div className="historia-features">
                 <div className="feature-item">
-                  <FaCheckCircle className="feature-icon" />
+                  <span className="feature-icon">✓</span>
                   <span>Equipa Especializada</span>
                 </div>
                 <div className="feature-item">
-                  <FaCheckCircle className="feature-icon" />
+                  <span className="feature-icon">✓</span>
                   <span>Tecnologia Avançada</span>
                 </div>
                 <div className="feature-item">
-                  <FaCheckCircle className="feature-icon" />
+                  <span className="feature-icon">✓</span>
                   <span>Produtos Certificados</span>
                 </div>
                 <div className="feature-item">
-                  <FaCheckCircle className="feature-icon" />
+                  <span className="feature-icon">✓</span>
                   <span>Atendimento 24/7</span>
                 </div>
               </div>
@@ -178,9 +134,7 @@ export default function Sobre() {
           <p className="section-subtitle">O que nos move e nos guia no dia a dia</p>
           <div className="missao-grid">
             <div className="missao-card">
-              <div className="missao-icon">
-                <FaBullseye />
-              </div>
+              <div className="missao-icon">🎯</div>
               <h3>Missão</h3>
               <p>
                 Prestar apoio a empresas e singulares na prevenção e controle sistemático de pragas e limpeza, 
@@ -189,9 +143,7 @@ export default function Sobre() {
             </div>
 
             <div className="missao-card">
-              <div className="missao-icon">
-                <FaEye />
-              </div>
+              <div className="missao-icon">👁️</div>
               <h3>Visão</h3>
               <p>
                 Ser referência no setor de controlo de pragas e limpeza, reconhecida pela qualidade dos serviços, 
@@ -200,16 +152,14 @@ export default function Sobre() {
             </div>
 
             <div className="missao-card">
-              <div className="missao-icon">
-                <FaBalanceScale />
-              </div>
+              <div className="missao-icon">⚖️</div>
               <h3>Valores</h3>
               <ul className="valores-list">
-                <li><FaCheckCircle /> Qualidade e Excelência</li>
-                <li><FaCheckCircle /> Ética Profissional</li>
-                <li><FaCheckCircle /> Responsabilidade Ambiental</li>
-                <li><FaCheckCircle /> Dinamismo e Proatividade</li>
-                <li><FaCheckCircle /> Compromisso com o Cliente</li>
+                <li>✓ Qualidade e Excelência</li>
+                <li>✓ Ética Profissional</li>
+                <li>✓ Responsabilidade Ambiental</li>
+                <li>✓ Dinamismo e Proatividade</li>
+                <li>✓ Compromisso com o Cliente</li>
               </ul>
             </div>
           </div>
@@ -223,30 +173,22 @@ export default function Sobre() {
           <p className="section-subtitle">O que nos torna a escolha certa</p>
           <div className="diferenciais-grid">
             <div className="diferencial-item">
-              <div className="diferencial-icon">
-                <FaMedal />
-              </div>
+              <div className="diferencial-icon">🏅</div>
               <h3>Excelência Comprovada</h3>
               <p>Mais de 500 clientes atendidos com 98% de satisfação</p>
             </div>
             <div className="diferencial-item">
-              <div className="diferencial-icon">
-                <FaLeaf />
-              </div>
+              <div className="diferencial-icon">🌿</div>
               <h3>Produtos Eco-Friendly</h3>
               <p>Certificados e seguros para pessoas e animais</p>
             </div>
             <div className="diferencial-item">
-              <div className="diferencial-icon">
-                <FaClock />
-              </div>
+              <div className="diferencial-icon">⏰</div>
               <h3>Atendimento Rápido</h3>
               <p>Resposta em até 24 horas para emergências</p>
             </div>
             <div className="diferencial-item">
-              <div className="diferencial-icon">
-                <FaAward />
-              </div>
+              <div className="diferencial-icon">🏆</div>
               <h3>Garantia de 6 Meses</h3>
               <p>Assistência gratuita em caso de reincidência</p>
             </div>
@@ -254,32 +196,7 @@ export default function Sobre() {
         </div>
       </section>
 
-      {/* Equipe Técnica */}
-      <section className="equipe-tecnica">
-        <div className="container">
-          <h2 className="section-title">Equipa Técnica Especializada</h2>
-          <p className="section-subtitle">Profissionais qualificados para cuidar do seu ambiente</p>
-          <div className="equipe-grid">
-            {equipeTecnica.map((membro, index) => (
-              <div key={index} className="membro-card">
-                <div className="membro-foto">
-                  <div className="foto-placeholder">
-                    <FaUsers className="placeholder-icon" />
-                  </div>
-                </div>
-                <h4>{membro.nome}</h4>
-                <p className="membro-cargo">{membro.cargo}</p>
-                <div className="membro-info">
-                  <span><strong>Especialidade:</strong> {membro.especialidade}</span>
-                  <span><strong>Experiência:</strong> {membro.experiencia}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Clientes/Parceiros */}
+      {/* Clientes/Parceiros - COM TECHVISION */}
       <section className="clientes-parceiros">
         <div className="container">
           <h2 className="section-title">Empresas que Confiam em Nós</h2>
@@ -288,7 +205,16 @@ export default function Sobre() {
             {clientes.map((cliente) => (
               <div key={cliente.id} className="cliente-card">
                 <div className="cliente-imagem">
-                  <img src={cliente.imagem} alt={cliente.nome} />
+                  {cliente.imagem ? (
+                    <img src={cliente.imagem} alt={cliente.nome} />
+                  ) : (
+                    <div className="cliente-placeholder techvision-placeholder">
+                      <div className="placeholder-content">
+                        <span className="placeholder-icon">💻</span>
+                        <span className="placeholder-text">TechVision</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <h4>{cliente.nome}</h4>
                 <p>{cliente.cargo}</p>
@@ -305,7 +231,7 @@ export default function Sobre() {
           <div className="stats-grid">
             <div className="stat-item">
               <div className="stat-icon-wrapper">
-                <FaChartLine className="stat-icon" />
+                <span className="stat-icon">📊</span>
               </div>
               <strong>2022</strong>
               <span>Ano de Fundação</span>
@@ -313,7 +239,7 @@ export default function Sobre() {
 
             <div className="stat-item">
               <div className="stat-icon-wrapper">
-                <FaUsers className="stat-icon" />
+                <span className="stat-icon">👥</span>
               </div>
               <strong>500+</strong>
               <span>Clientes Atendidos</span>
@@ -321,7 +247,7 @@ export default function Sobre() {
 
             <div className="stat-item">
               <div className="stat-icon-wrapper">
-                <FaAward className="stat-icon" />
+                <span className="stat-icon">🏆</span>
               </div>
               <strong>98%</strong>
               <span>Taxa de Satisfação</span>
@@ -329,7 +255,7 @@ export default function Sobre() {
 
             <div className="stat-item">
               <div className="stat-icon-wrapper">
-                <FaClock className="stat-icon" />
+                <span className="stat-icon">🕐</span>
               </div>
               <strong>24/7</strong>
               <span>Suporte ao Cliente</span>
