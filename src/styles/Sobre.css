@@ -1,5 +1,5 @@
 /* ============================================================
-   SOBRE.CSS - VERSÃO OTIMIZADA
+   SOBRE.CSS - VERSÃO ULTRA OTIMIZADA
    LARGURA 100% EM TODOS OS DISPOSITIVOS
    PORTUGUÊS DE PORTUGAL
    SEM FONTES EXTERNAS
@@ -12,11 +12,18 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ===== CONTAINER ===== */
@@ -31,11 +38,15 @@ body {
 .sobre-banner {
   background: linear-gradient(135deg, #1a3a5c 0%, #2c6b4f 100%);
   color: white;
-  padding: 100px 0 80px;
+  padding: clamp(60px, 12vh, 120px) 0 clamp(50px, 8vh, 80px);
   text-align: center;
   position: relative;
   overflow: hidden;
   width: 100%;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sobre-banner::before {
@@ -50,34 +61,62 @@ body {
 }
 
 .sobre-banner h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 3.5rem);
   margin-bottom: 15px;
   color: white;
   position: relative;
   z-index: 2;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  line-height: 1.2;
 }
 
 .sobre-banner p {
-  font-size: 1.3rem;
-  max-width: 600px;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  max-width: min(600px, 90%);
   margin: 0 auto;
   position: relative;
   z-index: 2;
   opacity: 0.95;
+  line-height: 1.6;
+  padding: 0 10px;
 }
 
-/* ===== NOSSA HISTÓRIA ===== */
-.nossa-historia {
-  padding: 80px 0;
-  background: #ffffff;
+/* ===== SEÇÕES ===== */
+.nossa-historia,
+.nossa-missao,
+.clientes-parceiros,
+.diferenciais,
+.estatisticas,
+.sobre-cta {
+  padding: clamp(50px, 10vh, 100px) 0;
   width: 100%;
 }
 
+.nossa-historia {
+  background: #ffffff;
+}
+
+.nossa-missao {
+  background: #f8f9fa;
+}
+
+.diferenciais {
+  background: #ffffff;
+}
+
+.clientes-parceiros {
+  background: #ffffff;
+}
+
+.sobre-cta {
+  background: #ffffff;
+}
+
+/* ===== NOSSA HISTÓRIA ===== */
 .historia-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
+  gap: clamp(30px, 5vw, 60px);
   align-items: center;
   width: 100%;
 }
@@ -88,7 +127,7 @@ body {
   color: white;
   padding: 5px 20px;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 1vw, 0.85rem);
   font-weight: 600;
   margin-bottom: 15px;
   letter-spacing: 0.5px;
@@ -97,9 +136,10 @@ body {
 .historia-text h2 {
   color: #2d3748;
   margin-bottom: 20px;
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   position: relative;
   padding-bottom: 15px;
+  line-height: 1.2;
 }
 
 .historia-text h2::after {
@@ -107,14 +147,14 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 80px;
+  width: clamp(60px, 8vw, 80px);
   height: 3px;
   background: #f8c654;
   border-radius: 2px;
 }
 
 .historia-text p {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
   line-height: 1.8;
   margin-bottom: 20px;
   color: #4a5568;
@@ -124,7 +164,6 @@ body {
   color: #2c6b4f;
 }
 
-/* Features da história */
 .historia-features {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -137,7 +176,7 @@ body {
   align-items: center;
   gap: 10px;
   color: #2d3748;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
 }
 
 .feature-icon {
@@ -148,7 +187,7 @@ body {
 
 .historia-vision {
   background: #f0f8f4;
-  padding: 20px 25px;
+  padding: clamp(15px, 2vw, 25px);
   border-radius: 12px;
   border-left: 4px solid #2c6b4f;
   margin-top: 20px;
@@ -156,21 +195,14 @@ body {
 
 .historia-vision p {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
   color: #2d3748;
 }
 
-/* Imagem da história */
-.historia-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
+/* ===== IMAGEM ===== */
 .image-container {
   width: 100%;
-  height: 450px;
+  height: clamp(280px, 50vh, 500px);
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 20px 40px rgba(26, 58, 92, 0.15);
@@ -209,7 +241,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 30px;
+  padding: clamp(20px, 3vw, 30px);
   background: linear-gradient(transparent, rgba(0,0,0,0.8));
   color: white;
   z-index: 2;
@@ -217,52 +249,51 @@ body {
 
 .image-overlay span {
   display: block;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 700;
 }
 
 .image-overlay p {
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 1vw, 1rem);
   opacity: 0.9;
   margin: 5px 0 0;
 }
 
 /* ===== MISSÃO, VISÃO, VALORES ===== */
-.nossa-missao {
-  padding: 80px 0;
-  background: #f8f9fa;
-  width: 100%;
-}
-
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   color: #2d3748;
   margin-bottom: 10px;
+  line-height: 1.2;
 }
 
 .section-subtitle {
   text-align: center;
   color: #718096;
-  font-size: 1.1rem;
-  margin-bottom: 50px;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  margin-bottom: clamp(30px, 5vh, 50px);
+  padding: 0 15px;
 }
 
 .missao-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(20px, 3vw, 30px);
   width: 100%;
 }
 
 .missao-card {
   background: white;
-  padding: 40px 30px;
+  padding: clamp(25px, 4vw, 40px) clamp(20px, 3vw, 30px);
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
   transition: all 0.3s ease;
   border: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .missao-card:hover {
@@ -272,60 +303,50 @@ body {
 }
 
 .missao-icon {
-  font-size: 2.5rem;
+  width: clamp(60px, 8vw, 80px);
+  height: clamp(60px, 8vw, 80px);
+  background: linear-gradient(135deg, #2c6b4f, #1a3a5c);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto 20px;
-  display: block;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .missao-card h3 {
   color: #2d3748;
   margin-bottom: 15px;
-  font-size: 1.4rem;
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
   font-weight: 600;
 }
 
 .missao-card p {
   color: #4a5568;
   line-height: 1.7;
-  font-size: 0.95rem;
-}
-
-.valores-list {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-}
-
-.valores-list li {
-  color: #4a5568;
-  padding: 5px 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  max-width: 100%;
 }
 
 /* ===== DIFERENCIAIS ===== */
-.diferenciais {
-  padding: 80px 0;
-  background: #ffffff;
-  width: 100%;
-}
-
 .diferenciais-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: clamp(15px, 2vw, 25px);
   width: 100%;
 }
 
 .diferencial-item {
   text-align: center;
-  padding: 30px 20px;
+  padding: clamp(20px, 3vw, 30px) clamp(15px, 2vw, 20px);
   background: #f8f9fa;
   border-radius: 16px;
   transition: all 0.3s ease;
   border: 1px solid rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .diferencial-item:hover {
@@ -335,45 +356,44 @@ body {
 }
 
 .diferencial-icon {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  display: block;
+  width: clamp(50px, 6vw, 65px);
+  height: clamp(50px, 6vw, 65px);
+  margin: 0 auto 15px;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .diferencial-item h3 {
   color: #2d3748;
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
   margin-bottom: 10px;
 }
 
 .diferencial-item p {
   color: #4a5568;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
   margin: 0;
   line-height: 1.5;
 }
 
 /* ===== CLIENTES/PARCEIROS ===== */
-.clientes-parceiros {
-  padding: 80px 0;
-  background: #ffffff;
-  width: 100%;
-}
-
 .clientes-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: clamp(15px, 2.5vw, 30px);
   width: 100%;
 }
 
 .cliente-card {
   background: #f8f9fa;
-  padding: 25px;
+  padding: clamp(15px, 2vw, 25px);
   border-radius: 16px;
   text-align: center;
   transition: all 0.3s ease;
   border: 1px solid rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .cliente-card:hover {
@@ -384,89 +404,48 @@ body {
 
 .cliente-imagem {
   width: 100%;
-  height: 120px;
+  height: clamp(90px, 15vh, 130px);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 15px;
   background: white;
   border-radius: 12px;
-  padding: 15px;
+  padding: clamp(10px, 2vw, 15px);
   box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  overflow: hidden;
 }
 
 .cliente-imagem img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+  width: auto;
+  height: auto;
 }
 
 .cliente-card h4 {
   color: #2d3748;
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 1.1vw, 1rem);
   margin-bottom: 5px;
+  word-break: break-word;
 }
 
 .cliente-card p {
   color: #2c6b4f;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: clamp(0.75rem, 0.9vw, 0.9rem);
   margin: 5px 0;
 }
 
 .cliente-card small {
   color: #718096;
-  font-size: 0.85rem;
+  font-size: clamp(0.7rem, 0.8vw, 0.85rem);
 }
 
-/* ===== TECHVISION TEXT LOGO ===== */
-.techvision-text-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  padding: 10px;
-  background: linear-gradient(135deg, #0a1628 0%, #1a2744 50%, #0d1f3c 100%);
-  border-radius: 12px;
-  min-width: 80px;
-  min-height: 80px;
-  border: 2px solid rgba(138, 180, 248, 0.3);
-  transition: all 0.3s ease;
-  width: 100%;
-  height: 100%;
-}
-
-.techvision-text-logo:hover {
-  transform: scale(1.05);
-  border-color: #4fc3f7;
-  box-shadow: 0 0 30px rgba(79, 195, 247, 0.2);
-}
-
-.techvision-icon {
-  font-size: 1.8rem;
-}
-
-.techvision-name {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.5px;
-}
-
-.techvision-tag {
-  font-size: 0.5rem;
-  font-weight: 600;
-  color: #4fc3f7;
-  background: rgba(79, 195, 247, 0.15);
-  padding: 2px 10px;
-  border-radius: 10px;
-  letter-spacing: 1px;
-}
-
-/* ===== ESTATÍSTICAS ===== */
+/* ===== STATS ===== */
 .estatisticas {
-  padding: 60px 0;
+  padding: clamp(40px, 8vh, 80px) 0;
   background: linear-gradient(135deg, #1a3a5c 0%, #2c6b4f 100%);
   color: white;
   position: relative;
@@ -487,8 +466,8 @@ body {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+  gap: clamp(20px, 3vw, 30px);
   text-align: center;
   position: relative;
   z-index: 2;
@@ -499,73 +478,78 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10px;
 }
 
 .stat-icon-wrapper {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  opacity: 0.9;
+  font-size: 0;
+  width: clamp(45px, 6vw, 65px);
+  height: clamp(45px, 6vw, 65px);
+  margin: 0 auto 10px;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .stat-item strong {
   display: block;
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
   color: #f8c654;
   margin-bottom: 5px;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 .stat-item span {
-  font-size: 1.1rem;
+  font-size: clamp(0.85rem, 1.1vw, 1.1rem);
   color: rgba(255,255,255,0.9);
   font-weight: 500;
 }
 
 /* ===== CTA ===== */
-.sobre-cta {
-  padding: 70px 0;
-  background: #ffffff;
-  width: 100%;
-}
-
 .cta-content {
   text-align: center;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding: 60px 40px;
+  padding: clamp(30px, 6vh, 60px) clamp(20px, 4vw, 40px);
   border-radius: 20px;
   border: 1px solid rgba(0,0,0,0.04);
   width: 100%;
 }
 
 .cta-content h2 {
-  font-size: 2.2rem;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
   color: #2d3748;
   margin-bottom: 15px;
+  line-height: 1.2;
 }
 
 .cta-content p {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
   color: #4a5568;
   margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cta-buttons {
   display: flex;
-  gap: 15px;
+  gap: clamp(10px, 2vw, 15px);
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .cta-button {
-  padding: 15px 35px;
+  padding: clamp(12px, 2vw, 15px) clamp(25px, 4vw, 35px);
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1vw, 1rem);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
+  min-width: 150px;
+  text-align: center;
 }
 
 .cta-button.primary {
@@ -592,309 +576,15 @@ body {
 }
 
 /* ============================================================
-   RESPONSIVIDADE - 100% LARGURA EM TODOS OS DISPOSITIVOS
+   ÍCONES CSS - SEM EMOJIS (OTIMIZADOS)
    ============================================================ */
 
-/* === TABLETS (1024px) === */
-@media (max-width: 1024px) {
-  .historia-content {
-    gap: 30px;
-  }
-
-  .image-container {
-    height: 400px;
-  }
-
-  .diferenciais-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .clientes-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .container {
-    padding: 0 30px;
-  }
-}
-
-/* === TABLETS PEQUENOS / MOBILE GRANDE (768px) === */
-@media (max-width: 768px) {
-  .sobre-banner {
-    padding: 60px 0 50px;
-  }
-
-  .sobre-banner h1 {
-    font-size: 2.2rem;
-  }
-
-  .sobre-banner p {
-    font-size: 1.1rem;
-  }
-
-  .historia-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .historia-text h2 {
-    font-size: 2rem;
-  }
-
-  .historia-text p {
-    font-size: 1rem;
-  }
-
-  .historia-features {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .image-container {
-    height: 350px;
-    max-width: 100%;
-  }
-
-  .missao-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .diferenciais-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .clientes-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-  }
-
-  .stat-item strong {
-    font-size: 2.2rem;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .cta-content {
-    padding: 40px 25px;
-  }
-
-  .cta-content h2 {
-    font-size: 1.8rem;
-  }
-
-  .container {
-    padding: 0 20px;
-  }
-}
-
-/* === MOBILE (480px) === */
-@media (max-width: 480px) {
-  .sobre-banner {
-    padding: 50px 0 40px;
-  }
-
-  .sobre-banner h1 {
-    font-size: 1.8rem;
-  }
-
-  .sobre-banner p {
-    font-size: 1rem;
-    padding: 0 10px;
-  }
-
-  .nossa-historia,
-  .nossa-missao,
-  .clientes-parceiros,
-  .diferenciais,
-  .estatisticas {
-    padding: 50px 0;
-  }
-
-  .historia-text h2 {
-    font-size: 1.6rem;
-  }
-
-  .historia-features {
-    grid-template-columns: 1fr;
-  }
-
-  .image-container {
-    height: 280px;
-  }
-
-  .image-overlay span {
-    font-size: 1.2rem;
-  }
-
-  .image-overlay p {
-    font-size: 0.9rem;
-  }
-
-  .missao-card {
-    padding: 30px 20px;
-  }
-
-  .diferenciais-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .clientes-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-  }
-
-  .cliente-card {
-    padding: 15px 10px;
-  }
-
-  .cliente-imagem {
-    height: 90px;
-    padding: 10px;
-  }
-
-  .cliente-card h4 {
-    font-size: 0.85rem;
-  }
-
-  .cliente-card p {
-    font-size: 0.75rem;
-  }
-
-  .cliente-card small {
-    font-size: 0.7rem;
-  }
-
-  /* TechVision mobile */
-  .techvision-text-logo {
-    min-width: 60px;
-    min-height: 60px;
-    padding: 8px;
-  }
-
-  .techvision-icon {
-    font-size: 1.4rem;
-  }
-
-  .techvision-name {
-    font-size: 0.7rem;
-  }
-
-  .techvision-tag {
-    font-size: 0.45rem;
-    padding: 1px 8px;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  .stat-item strong {
-    font-size: 1.8rem;
-  }
-
-  .stat-item span {
-    font-size: 0.85rem;
-  }
-
-  .stat-icon-wrapper {
-    font-size: 2rem;
-  }
-
-  .section-title {
-    font-size: 1.8rem;
-  }
-
-  .section-subtitle {
-    font-size: 0.95rem;
-    margin-bottom: 30px;
-    padding: 0 10px;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cta-button {
-    width: 100%;
-    max-width: 280px;
-  }
-
-  .cta-content {
-    padding: 30px 20px;
-  }
-
-  .cta-content h2 {
-    font-size: 1.5rem;
-  }
-
-  .cta-content p {
-    font-size: 0.95rem;
-  }
-
-  .container {
-    padding: 0 15px;
-  }
-}
-
-/* === MOBILE MUITO PEQUENO (360px) === */
-@media (max-width: 360px) {
-  .clientes-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .cliente-imagem {
-    height: 100px;
-  }
-
-  .sobre-banner h1 {
-    font-size: 1.5rem;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-  }
-
-  .stat-item strong {
-    font-size: 1.5rem;
-  }
-
-  .container {
-    padding: 0 10px;
-  }
-}
-/* ============================================================
-   ÍCONES CSS - SEM EMOJIS
-   ============================================================ */
-
-/* ----- Ícones da Missão, Visão e Valores ----- */
-.missao-icon {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, #2c6b4f, #1a3a5c);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-  position: relative;
-}
-
-/* Ícone Target (Missão) */
+/* Target (Missão) */
 .missao-icon-target::before {
   content: '';
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: clamp(25px, 4vw, 32px);
+  height: clamp(25px, 4vw, 32px);
   border: 4px solid white;
   border-radius: 50%;
   top: 50%;
@@ -905,8 +595,8 @@ body {
 .missao-icon-target::after {
   content: '';
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: clamp(8px, 1.5vw, 12px);
+  height: clamp(8px, 1.5vw, 12px);
   background: white;
   border-radius: 50%;
   top: 50%;
@@ -914,12 +604,12 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* Ícone Eye (Visão) */
+/* Eye (Visão) */
 .missao-icon-eye::before {
   content: '';
   position: absolute;
-  width: 30px;
-  height: 18px;
+  width: clamp(22px, 3.5vw, 30px);
+  height: clamp(14px, 2vw, 18px);
   border: 4px solid white;
   border-radius: 50%;
   top: 50%;
@@ -930,8 +620,8 @@ body {
 .missao-icon-eye::after {
   content: '';
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: clamp(8px, 1.5vw, 10px);
+  height: clamp(8px, 1.5vw, 10px);
   background: white;
   border-radius: 50%;
   top: 50%;
@@ -939,12 +629,12 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* Ícone Scale (Valores) */
+/* Scale (Valores) */
 .missao-icon-scale::before {
   content: '';
   position: absolute;
   width: 6px;
-  height: 30px;
+  height: clamp(25px, 4vw, 32px);
   background: white;
   top: 50%;
   left: 40%;
@@ -955,27 +645,19 @@ body {
   content: '';
   position: absolute;
   width: 6px;
-  height: 30px;
+  height: clamp(25px, 4vw, 32px);
   background: white;
   top: 50%;
   left: 60%;
   transform: translate(-50%, -50%);
 }
 
-/* ----- Ícones dos Diferenciais ----- */
-.diferencial-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 15px;
-  position: relative;
-}
-
 /* Medalha */
 .dif-icon-medal::before {
   content: '';
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: clamp(30px, 4.5vw, 40px);
+  height: clamp(30px, 4.5vw, 40px);
   border: 4px solid #2c6b4f;
   border-radius: 50%;
   top: 50%;
@@ -985,7 +667,7 @@ body {
 
 .dif-icon-medal::after {
   content: '★';
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   color: #f8c654;
   position: absolute;
   top: 50%;
@@ -997,8 +679,8 @@ body {
 .dif-icon-leaf::before {
   content: '';
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: clamp(22px, 3.5vw, 30px);
+  height: clamp(22px, 3.5vw, 30px);
   border-radius: 0 50% 50% 50%;
   background: #2c6b4f;
   top: 50%;
@@ -1010,7 +692,7 @@ body {
   content: '';
   position: absolute;
   width: 2px;
-  height: 20px;
+  height: clamp(15px, 2.5vw, 20px);
   background: #2c6b4f;
   top: 60%;
   left: 50%;
@@ -1021,8 +703,8 @@ body {
 .dif-icon-clock::before {
   content: '';
   position: absolute;
-  width: 35px;
-  height: 35px;
+  width: clamp(28px, 4vw, 35px);
+  height: clamp(28px, 4vw, 35px);
   border: 4px solid #2c6b4f;
   border-radius: 50%;
   top: 50%;
@@ -1034,7 +716,7 @@ body {
   content: '';
   position: absolute;
   width: 3px;
-  height: 15px;
+  height: clamp(12px, 2vw, 15px);
   background: #2c6b4f;
   top: 30%;
   left: 50%;
@@ -1046,8 +728,8 @@ body {
 .dif-icon-trophy::before {
   content: '';
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: clamp(20px, 3vw, 25px);
+  height: clamp(20px, 3vw, 25px);
   border: 4px solid #f8c654;
   border-radius: 50%;
   top: 45%;
@@ -1057,28 +739,19 @@ body {
 
 .dif-icon-trophy::after {
   content: '🏆';
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-/* ----- Ícones das Estatísticas ----- */
-.stat-icon-wrapper {
-  font-size: 0;
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 10px;
-  position: relative;
-}
-
 /* Calendário */
 .stat-icon-calendar::before {
   content: '';
   position: absolute;
-  width: 40px;
-  height: 35px;
+  width: clamp(30px, 5vw, 40px);
+  height: clamp(25px, 4vw, 35px);
   border: 3px solid rgba(255,255,255,0.8);
   border-radius: 4px;
   top: 50%;
@@ -1089,7 +762,7 @@ body {
 .stat-icon-calendar::after {
   content: '';
   position: absolute;
-  width: 20px;
+  width: clamp(15px, 2.5vw, 20px);
   height: 4px;
   background: rgba(255,255,255,0.8);
   top: 35%;
@@ -1102,8 +775,8 @@ body {
 .stat-icon-users::before {
   content: '';
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: clamp(16px, 2.5vw, 20px);
+  height: clamp(16px, 2.5vw, 20px);
   border: 3px solid rgba(255,255,255,0.8);
   border-radius: 50%;
   top: 35%;
@@ -1114,8 +787,8 @@ body {
 .stat-icon-users::after {
   content: '';
   position: absolute;
-  width: 30px;
-  height: 20px;
+  width: clamp(24px, 4vw, 30px);
+  height: clamp(16px, 2.5vw, 20px);
   border: 3px solid rgba(255,255,255,0.8);
   border-radius: 50% 50% 0 0;
   bottom: 20%;
@@ -1123,18 +796,18 @@ body {
   transform: translateX(-50%);
 }
 
-/* ----- TechVision Text Logo (sem emojis) ----- */
+/* TechVision */
 .techvision-text-logo {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2px;
-  padding: 15px;
+  padding: clamp(10px, 2vw, 15px);
   background: linear-gradient(135deg, #0a1628 0%, #1a2744 50%, #0d1f3c 100%);
   border-radius: 12px;
-  min-width: 100px;
-  min-height: 80px;
+  min-width: clamp(70px, 12vw, 100px);
+  min-height: clamp(60px, 10vh, 80px);
   border: 2px solid rgba(138, 180, 248, 0.3);
   transition: all 0.3s ease;
   width: 100%;
@@ -1148,31 +821,37 @@ body {
 }
 
 .techvision-icon {
-  font-size: 1.8rem;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
 }
 
 .techvision-name {
-  font-size: 0.9rem;
+  font-size: clamp(0.6rem, 1vw, 0.9rem);
   font-weight: 700;
   color: #ffffff;
   letter-spacing: 0.5px;
 }
 
 .techvision-tag {
-  font-size: 0.55rem;
+  font-size: clamp(0.4rem, 0.7vw, 0.55rem);
   font-weight: 600;
   color: #4fc3f7;
   background: rgba(79, 195, 247, 0.15);
-  padding: 2px 10px;
+  padding: 2px clamp(6px, 1vw, 10px);
   border-radius: 10px;
   letter-spacing: 1px;
 }
 
-/* ----- Check Icon ----- */
+/* Check Icon */
 .feature-icon.check {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
   font-weight: bold;
   color: #2c6b4f;
+}
+
+.valores-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
 }
 
 .valores-list li::before {
@@ -1182,106 +861,305 @@ body {
   margin-right: 8px;
 }
 
-.valores-list {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-}
-
 .valores-list li {
   padding: 5px 0;
   color: #4a5568;
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
 }
 
 /* ============================================================
-   RESPONSIVIDADE PARA ÍCONES
+   RESPONSIVIDADE - BREAKPOINTS OTIMIZADOS
    ============================================================ */
 
-@media (max-width: 768px) {
-  .missao-icon {
-    width: 60px;
-    height: 60px;
+/* Tablets grandes (1024px) */
+@media (max-width: 1024px) {
+  .historia-content {
+    gap: 30px;
   }
   
-  .missao-icon-target::before {
-    width: 25px;
-    height: 25px;
-  }
-  
-  .missao-icon-target::after {
-    width: 8px;
-    height: 8px;
-  }
-  
-  .missao-icon-eye::before {
-    width: 25px;
-    height: 15px;
-  }
-  
-  .missao-icon-eye::after {
-    width: 8px;
-    height: 8px;
-  }
-  
-  .missao-icon-scale::before,
-  .missao-icon-scale::after {
-    height: 25px;
-  }
-  
-  .diferencial-icon {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .stat-icon-wrapper {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .stat-icon-calendar::before {
-    width: 35px;
-    height: 30px;
+  .container {
+    padding: 0 30px;
   }
 }
 
+/* Tablets / Mobile grande (768px) */
+@media (max-width: 768px) {
+  .historia-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .historia-text h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .historia-text h2 {
+    text-align: center;
+  }
+  
+  .historia-text .historia-badge {
+    display: block;
+    margin: 0 auto 15px;
+    width: fit-content;
+  }
+  
+  .historia-features {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .historia-vision {
+    text-align: center;
+    border-left: none;
+    border-top: 4px solid #2c6b4f;
+    padding: 20px;
+  }
+  
+  .image-container {
+    height: clamp(250px, 40vh, 350px);
+  }
+  
+  .missao-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .diferenciais-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .clientes-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stat-item strong {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+  }
+  
+  .cta-content {
+    padding: 30px 20px;
+  }
+}
+
+/* Mobile médio (480px) */
 @media (max-width: 480px) {
-  .missao-icon {
-    width: 50px;
-    height: 50px;
+  .sobre-banner {
+    min-height: 30vh;
+    padding: 40px 0 30px;
   }
   
-  .diferencial-icon {
-    width: 40px;
-    height: 40px;
+  .sobre-banner h1 {
+    font-size: clamp(1.5rem, 6vw, 1.8rem);
   }
   
-  .stat-icon-wrapper {
-    width: 40px;
-    height: 40px;
+  .sobre-banner p {
+    font-size: clamp(0.9rem, 3vw, 1rem);
   }
   
-  .stat-icon-calendar::before {
-    width: 30px;
-    height: 25px;
+  .historia-features {
+    grid-template-columns: 1fr;
   }
   
-  .techvision-text-logo {
-    min-width: 70px;
-    min-height: 60px;
-    padding: 10px;
+  .image-container {
+    height: clamp(200px, 30vh, 280px);
   }
   
-  .techvision-icon {
-    font-size: 1.4rem;
+  .diferenciais-grid {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin: 0 auto;
   }
   
-  .techvision-name {
+  .clientes-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  
+  .cliente-card {
+    padding: 12px 8px;
+  }
+  
+  .cliente-imagem {
+    height: 70px;
+    padding: 8px;
+  }
+  
+  .cliente-card h4 {
+    font-size: 0.8rem;
+  }
+  
+  .cliente-card p {
     font-size: 0.7rem;
   }
   
-  .techvision-tag {
-    font-size: 0.45rem;
-    padding: 1px 8px;
+  .cliente-card small {
+    font-size: 0.65rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  
+  .stat-item strong {
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+  }
+  
+  .stat-item span {
+    font-size: clamp(0.75rem, 2vw, 0.85rem);
+  }
+  
+  .stat-icon-wrapper {
+    width: clamp(40px, 10vw, 50px);
+    height: clamp(40px, 10vw, 50px);
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-button {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .container {
+    padding: 0 12px;
+  }
+  
+  .section-title {
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+  }
+  
+  .section-subtitle {
+    font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+    margin-bottom: 25px;
+  }
+}
+
+/* Mobile muito pequeno (360px) */
+@media (max-width: 360px) {
+  .clientes-grid {
+    grid-template-columns: 1fr;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .stat-item strong {
+    font-size: 1.3rem;
+  }
+  
+  .stat-item span {
+    font-size: 0.7rem;
+  }
+  
+  .container {
+    padding: 0 10px;
+  }
+  
+  .cta-button {
+    font-size: 0.85rem;
+    padding: 12px 20px;
+    min-width: 120px;
+  }
+}
+
+/* ============================================================
+   ORIENTAÇÃO PAISAGEM
+   ============================================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+  .sobre-banner {
+    min-height: 100vh;
+    padding: 30px 0;
+  }
+  
+  .sobre-banner h1 {
+    font-size: clamp(1.5rem, 4vh, 2.2rem);
+  }
+  
+  .sobre-banner p {
+    font-size: clamp(0.8rem, 2vh, 1rem);
+    max-width: 80%;
+  }
+  
+  .image-container {
+    height: clamp(180px, 40vh, 250px);
+  }
+  
+  .historia-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .missao-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .diferenciais-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .nossa-historia,
+  .nossa-missao,
+  .clientes-parceiros,
+  .diferenciais,
+  .estatisticas,
+  .sobre-cta {
+    padding: 30px 0;
+  }
+}
+
+/* ============================================================
+   IMPRESSÃO
+   ============================================================ */
+@media print {
+  .sobre-banner {
+    background: #1a3a5c !important;
+    min-height: auto !important;
+    padding: 30px 0 !important;
+  }
+  
+  .estatisticas {
+    background: #1a3a5c !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .missao-card,
+  .diferencial-item,
+  .cliente-card {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+  
+  .cta-button {
+    border: 1px solid #333 !important;
+  }
+  
+  .sobre-banner::before,
+  .estatisticas::before {
+    display: none !important;
+  }
+  
+  .missao-icon {
+    background: #2c6b4f !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }
