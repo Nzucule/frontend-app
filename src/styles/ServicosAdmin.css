@@ -1,7 +1,7 @@
 /* ============================================================
    SERVICOSADMIN.CSS - VERSÃO PREMIUM ULTIMATE
+   TABELA HORIZONTAL - MAIS ESPAÇO
    RESPONSIVIDADE TOTAL 100% - MOBILE FIRST
-   DESIGN MODERNO E OTIMIZADO
    ============================================================ */
 
 :root {
@@ -42,7 +42,7 @@
   --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
   --sidebar-width: 280px;
   
-  /* Touch targets (mínimo 44px para mobile) */
+  /* Touch targets */
   --touch-min: 44px;
 }
 
@@ -323,7 +323,7 @@
 .card-resumo:nth-child(4) .card-icon { background: rgba(231, 76, 60, 0.1); }
 
 /* ============================================================
-   TABELA
+   TABELA HORIZONTAL - CARDS
    ============================================================ */
 .tabela-servicos-wrapper {
   width: 100%;
@@ -333,94 +333,98 @@
   box-shadow: var(--shadow-sm);
   background: var(--bg-white);
   margin: 0;
+  padding: 0;
 }
 
+/* Container de cards horizontais */
 .tabela-servicos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
   width: 100%;
-  min-width: 600px;
+}
+
+/* Cada linha é um card horizontal */
+.tabela-servicos .servico-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   background: var(--bg-white);
-  border-collapse: collapse;
-  font-family: var(--font-family);
+  padding: clamp(12px, 1.5vw, 18px);
+  border-radius: var(--border-radius-md);
+  border: 1px solid #E2E8F0;
+  transition: var(--transition-spring);
+  flex-wrap: wrap;
 }
 
-.tabela-servicos thead {
+.tabela-servicos .servico-row:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.tabela-servicos .servico-row:active {
+  transform: scale(0.98);
+}
+
+/* Cabeçalho da tabela (escondido em mobile, visível em desktop) */
+.tabela-servicos .servico-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: clamp(10px, 1.2vw, 14px) clamp(12px, 1.5vw, 18px);
   background: var(--primary-color);
+  border-radius: var(--border-radius-sm);
   color: var(--text-white);
-}
-
-.tabela-servicos th {
-  padding: clamp(10px, 1.2vw, 14px);
-  text-align: left;
   font-weight: 600;
   font-size: clamp(0.65rem, 0.75vw, 0.85rem);
-  white-space: nowrap;
-  letter-spacing: 0.3px;
   text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
-.tabela-servicos td {
-  padding: clamp(8px, 1vw, 14px);
-  border-bottom: 1px solid #E2E8F0;
-  vertical-align: middle;
-  font-size: clamp(0.7rem, 0.85vw, 0.9rem);
-  color: var(--text-dark);
-}
-
-.tabela-servicos tbody tr {
-  transition: var(--transition);
-}
-
-.tabela-servicos tbody tr:hover {
-  background: var(--bg-light);
-}
-
-.tabela-servicos tbody tr:last-child td {
-  border-bottom: none;
-}
-
-/* Colunas com largura fixa */
-.tabela-servicos th:nth-child(1),
-.tabela-servicos td:nth-child(1) {
-  width: 60px;
-  min-width: 50px;
-}
-
-.tabela-servicos th:nth-child(2),
-.tabela-servicos td:nth-child(2) {
-  min-width: 100px;
-}
-
-.tabela-servicos th:nth-child(3),
-.tabela-servicos td:nth-child(3) {
-  min-width: 90px;
-}
-
-.tabela-servicos th:nth-child(4),
-.tabela-servicos td:nth-child(4) {
-  min-width: 100px;
-}
-
-.tabela-servicos th:nth-child(5),
-.tabela-servicos td:nth-child(5) {
+/* Colunas dentro de cada linha */
+.servico-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
   min-width: 80px;
 }
 
-.tabela-servicos th:nth-child(6),
-.tabela-servicos td:nth-child(6) {
-  min-width: 70px;
+.servico-col .col-label {
+  display: none;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
-.tabela-servicos th:nth-child(7),
-.tabela-servicos td:nth-child(7) {
-  min-width: 120px;
+.servico-col .col-value {
+  font-size: clamp(0.8rem, 0.9vw, 0.95rem);
+  color: var(--text-dark);
+  word-break: break-word;
+}
+
+/* Coluna de imagem */
+.servico-col-imagem {
+  flex: 0 0 clamp(50px, 5vw, 70px);
+  min-width: 50px;
+}
+
+/* Coluna de ações */
+.servico-col-acoes {
+  flex: 0 0 auto;
+  min-width: 100px;
 }
 
 /* ============================================================
    IMAGENS
    ============================================================ */
 .img-servico {
-  width: clamp(36px, 4.5vw, 50px);
-  height: clamp(36px, 4.5vw, 50px);
+  width: clamp(45px, 5vw, 60px);
+  height: clamp(45px, 5vw, 60px);
   border-radius: var(--border-radius-sm);
   object-fit: cover;
   display: block;
@@ -433,13 +437,13 @@
 }
 
 .img-placeholder {
-  width: clamp(36px, 4.5vw, 50px);
-  height: clamp(36px, 4.5vw, 50px);
+  width: clamp(45px, 5vw, 60px);
+  height: clamp(45px, 5vw, 60px);
   border-radius: var(--border-radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(16px, 2.5vw, 22px);
+  font-size: clamp(18px, 2.5vw, 24px);
   color: var(--text-white);
   background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
   border: 2px solid rgba(255, 255, 255, 0.1);
@@ -477,31 +481,6 @@
 
 .badge-categoria.default {
   background: var(--bg-light);
-  color: var(--text-light);
-}
-
-/* ============================================================
-   DESCRIÇÃO
-   ============================================================ */
-.descricao-cell {
-  max-width: 180px;
-  color: var(--text-light);
-  font-size: clamp(0.65rem, 0.75vw, 0.85rem);
-  line-height: 1.4;
-  word-break: break-word;
-}
-
-.servico-nome {
-  font-weight: 600;
-  color: var(--text-dark);
-}
-
-.preco-valor {
-  font-weight: 600;
-  color: var(--primary-color);
-}
-
-.duracao-valor {
   color: var(--text-light);
 }
 
@@ -981,40 +960,43 @@
 }
 
 /* ============================================================
-   RESPONSIVIDADE COMPLETA - MOBILE FIRST
+   RESPONSIVIDADE COMPLETA
    ============================================================ */
 
-/* === TABLETS GRANDES (1200px) === */
-@media (max-width: 1200px) {
-  .cards-container {
-    grid-template-columns: repeat(4, 1fr);
+/* === DESKTOP - TABELA HORIZONTAL VISÍVEL === */
+@media (min-width: 769px) {
+  .tabela-servicos .servico-header {
+    display: flex;
+  }
+  
+  .tabela-servicos .servico-row {
+    flex-wrap: nowrap;
+    padding: clamp(12px, 1.5vw, 18px);
+  }
+  
+  .servico-col {
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .servico-col .col-label {
+    display: none;
+  }
+  
+  .servico-col-imagem {
+    flex: 0 0 70px;
+  }
+  
+  .servico-col-acoes {
+    flex: 0 0 140px;
+  }
+  
+  .botoes-acao {
+    flex-direction: row;
   }
 }
 
-/* === TABLETS (1024px) === */
-@media (max-width: 1024px) {
-  .header-pagina {
-    gap: 10px;
-  }
-  
-  .btn-add {
-    font-size: 0.85rem;
-  }
-  
-  .tabela-servicos-wrapper {
-    border-radius: var(--border-radius-sm);
-  }
-  
-  .descricao-cell {
-    max-width: 130px;
-  }
-  
-  .cards-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* === TABLETS PEQUENOS (768px) === */
+/* === TABLETS (768px) === */
 @media (max-width: 768px) {
   .header-pagina {
     flex-direction: column;
@@ -1048,16 +1030,6 @@
     min-width: unset;
   }
   
-  .tabela-servicos-wrapper {
-    border-radius: var(--border-radius-sm);
-    margin: 0 -8px;
-    padding: 0 8px;
-  }
-  
-  .tabela-servicos {
-    min-width: 500px;
-  }
-  
   .cards-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -1069,6 +1041,63 @@
   
   .card-valor {
     font-size: 1.3rem;
+  }
+  
+  /* Tabela horizontal em mobile - mostra labels */
+  .tabela-servicos .servico-header {
+    display: none;
+  }
+  
+  .tabela-servicos .servico-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 14px;
+  }
+  
+  .servico-col {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    flex: 1 1 auto;
+    min-width: unset;
+  }
+  
+  .servico-col .col-label {
+    display: inline-block;
+    min-width: 80px;
+    font-size: 0.6rem;
+    color: var(--text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .servico-col .col-value {
+    font-size: 0.85rem;
+  }
+  
+  .servico-col-imagem {
+    flex: 0 0 auto;
+    min-width: unset;
+    align-self: center;
+  }
+  
+  .servico-col-acoes {
+    flex: 0 0 auto;
+    min-width: unset;
+    align-self: stretch;
+  }
+  
+  .botoes-acao {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .botoes-acao .btn-editar,
+  .botoes-acao .btn-excluir {
+    flex: 1;
+    justify-content: center;
   }
   
   .modal-box {
@@ -1087,7 +1116,7 @@
   }
 }
 
-/* === MOBILE (480px) - FOCO PRINCIPAL === */
+/* === MOBILE (480px) === */
 @media (max-width: 480px) {
   .header-pagina {
     gap: 8px;
@@ -1136,45 +1165,42 @@
     font-size: 1.1rem;
   }
   
-  .tabela-servicos-wrapper {
-    border-radius: var(--border-radius-sm);
-    margin: 0 -6px;
-    padding: 0 6px;
-  }
-  
   .tabela-servicos {
-    min-width: 420px;
+    padding: 10px;
+    gap: 8px;
   }
   
-  .tabela-servicos th,
-  .tabela-servicos td {
-    padding: 6px 4px;
-    font-size: 0.65rem;
+  .tabela-servicos .servico-row {
+    padding: 12px;
+    gap: 6px;
   }
   
-  .tabela-servicos th {
-    font-size: 0.55rem;
-    letter-spacing: 0.2px;
+  .servico-col {
+    gap: 4px;
+  }
+  
+  .servico-col .col-label {
+    min-width: 60px;
+    font-size: 0.5rem;
+  }
+  
+  .servico-col .col-value {
+    font-size: 0.75rem;
   }
   
   .img-servico,
   .img-placeholder {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
   }
   
   .img-placeholder {
-    font-size: 12px;
+    font-size: 14px;
   }
   
   .badge-categoria {
     font-size: 0.45rem;
-    padding: 2px 4px;
-  }
-  
-  .descricao-cell {
-    max-width: 60px;
-    font-size: 0.55rem;
+    padding: 2px 6px;
   }
   
   .btn-editar,
@@ -1184,16 +1210,9 @@
     min-height: 28px;
   }
   
-  .botoes-acao {
-    flex-direction: column;
-    gap: 3px;
-  }
-  
   .botoes-acao .btn-editar,
   .botoes-acao .btn-excluir {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
+    flex: 1;
   }
   
   /* Esconder texto, mostrar ícone em botões pequenos */
@@ -1331,43 +1350,42 @@
   }
   
   .tabela-servicos {
-    min-width: 340px;
+    padding: 6px;
+    gap: 6px;
   }
   
-  .tabela-servicos th,
-  .tabela-servicos td {
-    padding: 4px 3px;
-    font-size: 0.55rem;
+  .tabela-servicos .servico-row {
+    padding: 8px;
   }
   
-  .tabela-servicos th {
-    font-size: 0.5rem;
+  .servico-col .col-label {
+    min-width: 50px;
+    font-size: 0.45rem;
+  }
+  
+  .servico-col .col-value {
+    font-size: 0.65rem;
   }
   
   .img-servico,
   .img-placeholder {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
   }
   
   .img-placeholder {
-    font-size: 10px;
+    font-size: 12px;
   }
   
   .badge-categoria {
     font-size: 0.4rem;
-    padding: 1px 3px;
-  }
-  
-  .descricao-cell {
-    max-width: 50px;
-    font-size: 0.5rem;
+    padding: 1px 4px;
   }
   
   .btn-editar,
   .btn-excluir {
     font-size: 0.5rem;
-    padding: 2px 4px;
+    padding: 2px 6px;
     min-height: 24px;
   }
   
@@ -1488,14 +1506,11 @@
     border-radius: 0 !important;
   }
   
-  .tabela-servicos thead {
+  .tabela-servicos .servico-header {
     background: #0B4F6C !important;
+    color: white !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
-  }
-  
-  .tabela-servicos th {
-    color: white !important;
   }
   
   .badge-categoria {
@@ -1512,8 +1527,9 @@
     display: none !important;
   }
   
-  .tabela-servicos td {
-    padding: 6px 8px !important;
+  .tabela-servicos .servico-row {
+    border: 1px solid #ddd !important;
+    break-inside: avoid;
   }
 }
 
@@ -1522,21 +1538,20 @@
    ============================================================ */
 
 /* Animação de entrada das linhas */
-.tabela-servicos tbody tr {
+.tabela-servicos .servico-row {
   animation: rowFade 0.3s ease forwards;
   opacity: 0;
 }
 
-.tabela-servicos tbody tr:nth-child(1) { animation-delay: 0.02s; }
-.tabela-servicos tbody tr:nth-child(2) { animation-delay: 0.04s; }
-.tabela-servicos tbody tr:nth-child(3) { animation-delay: 0.06s; }
-.tabela-servicos tbody tr:nth-child(4) { animation-delay: 0.08s; }
-.tabela-servicos tbody tr:nth-child(5) { animation-delay: 0.10s; }
-.tabela-servicos tbody tr:nth-child(6) { animation-delay: 0.12s; }
-.tabela-servicos tbody tr:nth-child(7) { animation-delay: 0.14s; }
-.tabela-servicos tbody tr:nth-child(8) { animation-delay: 0.16s; }
-.tabela-servicos tbody tr:nth-child(9) { animation-delay: 0.18s; }
-.tabela-servicos tbody tr:nth-child(10) { animation-delay: 0.20s; }
+.tabela-servicos .servico-row:nth-child(2) { animation-delay: 0.02s; }
+.tabela-servicos .servico-row:nth-child(3) { animation-delay: 0.04s; }
+.tabela-servicos .servico-row:nth-child(4) { animation-delay: 0.06s; }
+.tabela-servicos .servico-row:nth-child(5) { animation-delay: 0.08s; }
+.tabela-servicos .servico-row:nth-child(6) { animation-delay: 0.10s; }
+.tabela-servicos .servico-row:nth-child(7) { animation-delay: 0.12s; }
+.tabela-servicos .servico-row:nth-child(8) { animation-delay: 0.14s; }
+.tabela-servicos .servico-row:nth-child(9) { animation-delay: 0.16s; }
+.tabela-servicos .servico-row:nth-child(10) { animation-delay: 0.18s; }
 
 @keyframes rowFade {
   from {
@@ -1620,7 +1635,7 @@
   }
   
   .card-resumo,
-  .tabela-servicos tbody tr {
+  .tabela-servicos .servico-row {
     animation: none !important;
     opacity: 1 !important;
   }
@@ -1634,7 +1649,8 @@
   .btn-salvar:hover,
   .btn-fechar:hover,
   .card-resumo:hover,
-  .file-upload-label:hover {
+  .file-upload-label:hover,
+  .tabela-servicos .servico-row:hover {
     transform: none !important;
   }
   
@@ -1646,7 +1662,8 @@
     transform: scale(0.95) !important;
   }
   
-  .card-resumo:active {
+  .card-resumo:active,
+  .tabela-servicos .servico-row:active {
     transform: scale(0.97) !important;
   }
 }
@@ -1668,17 +1685,17 @@
     background: var(--bg-white);
   }
 
-  .tabela-servicos {
+  .tabela-servicos .servico-row {
     background: var(--bg-white);
+    border-color: #4a5568;
   }
 
-  .tabela-servicos td {
-    border-bottom-color: #4a5568;
-    color: var(--text-dark);
-  }
-
-  .tabela-servicos tbody tr:hover {
+  .tabela-servicos .servico-row:hover {
     background: var(--bg-light);
+  }
+
+  .tabela-servicos .servico-header {
+    background: var(--primary-color);
   }
 
   .card-resumo {
@@ -1770,18 +1787,6 @@
 
   .filtro-select:focus {
     border-color: var(--primary-light);
-  }
-
-  .servico-nome {
-    color: var(--text-dark);
-  }
-
-  .preco-valor {
-    color: var(--primary-light);
-  }
-
-  .duracao-valor {
-    color: var(--text-light);
   }
 
   .badge-categoria.fumigacao {
