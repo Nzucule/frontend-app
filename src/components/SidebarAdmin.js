@@ -21,6 +21,7 @@ export default function SidebarAdmin({ mobileOpen, setMobileMenuOpen }) {
         <nav className="sidebar-nav">
           <Link to="/admin/dashboard">📊 Dashboard</Link>
           <Link to="/admin/servicos">🔬 Serviços</Link>
+          <Link to="/admin/produtos">🛒 Artigos</Link>
           <Link to="/admin/agendamentos">📅 Agendamentos</Link>
           <Link to="/admin/clientes">👥 Clientes</Link>
           <Link to="/admin/tecnicos">👨‍🔬 Técnicos</Link>

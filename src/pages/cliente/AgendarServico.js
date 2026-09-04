@@ -113,26 +113,15 @@ function AgendarServico() {
   };
 
   // 🔥 VALIDAÇÃO DA PRIMEIRA ETAPA (DADOS DO SERVIÇO)
+  // Apenas o serviço e a data são obrigatórios — os restantes
+  // campos (endereço, bairro, compartimentos) passaram a ser
+  // opcionais para simplificar o preenchimento do formulário.
   const validarPrimeiraEtapa = () => {
-    // Validar serviço selecionado
     if (!formData.servico_id) {
       setError("Por favor, selecione um serviço.");
       return false;
     }
 
-    // Validar endereço
-    if (!formData.endereco_completo.trim()) {
-      setError("Por favor, preencha o endereço completo.");
-      return false;
-    }
-
-    // Validar bairro
-    if (!formData.bairro.trim()) {
-      setError("Por favor, preencha o bairro.");
-      return false;
-    }
-
-    // Validar data
     if (!formData.data_agendamento) {
       setError("Por favor, selecione uma data para o agendamento.");
       return false;
@@ -147,30 +136,16 @@ function AgendarServico() {
       return false;
     }
 
-    // Se for serviço térmico, validar quantidade
-    if (servico && servico.categoria !== "termico" && formData.quantidade_compartimentos < 1) {
-      setError("A quantidade de compartimentos deve ser pelo menos 1.");
-      return false;
-    }
-
     return true;
   };
 
   // 🔥 VALIDAÇÃO DA SEGUNDA ETAPA (DADOS DO CLIENTE - APENAS PARA NÃO LOGADOS)
+  // Apenas o contacto telefónico é obrigatório, para que a
+  // equipa consiga entrar em contacto com o cliente.
   const validarSegundaEtapa = () => {
-    if (!userLogado) {
-      if (!formData.nome_cliente.trim()) {
-        setError("Por favor, preencha o seu nome.");
-        return false;
-      }
-      if (!formData.email_cliente.trim()) {
-        setError("Por favor, preencha o seu e-mail.");
-        return false;
-      }
-      if (!formData.contacto_cliente.trim()) {
-        setError("Por favor, preencha o seu contacto telefónico.");
-        return false;
-      }
+    if (!userLogado && !formData.contacto_cliente.trim()) {
+      setError("Por favor, preencha o seu contacto telefónico.");
+      return false;
     }
     return true;
   };
@@ -477,24 +452,20 @@ function AgendarServico() {
                     </select>
                   </div>
                   <div className="form-group">
-                    <label>Endereço Completo *</label>
-                    <input type="text" name="endereco_completo" value={formData.endereco_completo} onChange={handleChange} placeholder="Rua/Avenida, Número" required disabled={currentStep !== 1 || loading} />
+                    <label>Endereço Completo</label>
+                    <input type="text" name="endereco_completo" value={formData.endereco_completo} onChange={handleChange} placeholder="Rua/Avenida, Número" disabled={currentStep !== 1 || loading} />
                   </div>
                   <div className="form-group">
-                    <label>Bairro *</label>
-                    <input type="text" name="bairro" value={formData.bairro} onChange={handleChange} placeholder="Seu bairro" required disabled={currentStep !== 1 || loading} />
+                    <label>Bairro</label>
+                    <input type="text" name="bairro" value={formData.bairro} onChange={handleChange} placeholder="Seu bairro" disabled={currentStep !== 1 || loading} />
                   </div>
                 </div>
 
                 <div className="form-row">
                   <div className="form-group">
-                    <label>Cidade *</label>
-                    <input type="text" name="cidade" value={formData.cidade} onChange={handleChange} placeholder="Maputo" required disabled={currentStep !== 1 || loading} />
-                  </div>
-                  <div className="form-group">
                     <label>Zona *</label>
                     <select name="zona" value={formData.zona} onChange={handleChange} required disabled={currentStep !== 1 || loading}>
-                      <option value="cidade">Dentro da Cidade</option>
+                      <option value="cidade">Dentro da Cidade (Maputo)</option>
                       <option value="fora_cidade">Fora da Cidade</option>
                     </select>
                   </div>
@@ -507,8 +478,8 @@ function AgendarServico() {
                 {servico && servico.categoria !== "termico" && (
                   <div className="form-row">
                     <div className="form-group">
-                      <label>Número de Compartimentos *</label>
-                      <input type="number" name="quantidade_compartimentos" min="1" value={formData.quantidade_compartimentos} onChange={handleChange} required disabled={currentStep !== 1 || loading} />
+                      <label>Número de Compartimentos</label>
+                      <input type="number" name="quantidade_compartimentos" min="1" value={formData.quantidade_compartimentos} onChange={handleChange} disabled={currentStep !== 1 || loading} />
                       <small>Quantidade de cômodos/áreas a serem tratadas</small>
                     </div>
                   </div>
@@ -527,16 +498,16 @@ function AgendarServico() {
                   <p className="section-subtext">Preencha os seus dados para que possamos entrar em contacto</p>
                   <div className="form-row">
                     <div className="form-group">
-                      <label>Nome Completo *</label>
-                      <input type="text" name="nome_cliente" value={formData.nome_cliente} onChange={handleChange} placeholder="Ex: João Silva" required={!userLogado} disabled={currentStep !== 2 || loading} />
+                      <label>Nome Completo</label>
+                      <input type="text" name="nome_cliente" value={formData.nome_cliente} onChange={handleChange} placeholder="Ex: João Silva" disabled={currentStep !== 2 || loading} />
                     </div>
                     <div className="form-group">
-                      <label>E-mail *</label>
-                      <input type="email" name="email_cliente" value={formData.email_cliente} onChange={handleChange} placeholder="Ex: joao@gmail.com" required={!userLogado} disabled={currentStep !== 2 || loading} />
+                      <label>E-mail</label>
+                      <input type="email" name="email_cliente" value={formData.email_cliente} onChange={handleChange} placeholder="Ex: joao@gmail.com" disabled={currentStep !== 2 || loading} />
                     </div>
                     <div className="form-group">
                       <label>Contacto Telefónico *</label>
-                      <input type="tel" name="contacto_cliente" value={formData.contacto_cliente} onChange={handleChange} placeholder="Ex: +258 84 000 0000" required={!userLogado} disabled={currentStep !== 2 || loading} />
+                      <input type="tel" name="contacto_cliente" value={formData.contacto_cliente} onChange={handleChange} placeholder="Ex: +258 84 000 0000" required disabled={currentStep !== 2 || loading} />
                     </div>
                   </div>
                 </div>

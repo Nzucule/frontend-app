@@ -413,3 +413,29 @@
     height: 40px;
   }
 }
+/* Ícone do carrinho de Artigos */
+.btn-cart {
+  position: relative;
+  font-size: 1.3rem;
+  text-decoration: none;
+  margin-right: 6px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #e74c3c;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}

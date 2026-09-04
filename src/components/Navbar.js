@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
+import { useStore } from "../context/StoreContext";
 
 // Importar o logo
 import logoApp from "../img/logo.png";
@@ -10,6 +11,8 @@ export default function Navbar() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { cartItems } = useStore();
+  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   // Função para ler os dados do usuário do localStorage
   const checarUsuario = () => {
@@ -89,6 +92,14 @@ export default function Navbar() {
           </li>
           <li>
             <Link 
+              to="/artigos" 
+              className={location.pathname.startsWith("/artigo") ? "active" : ""}
+            >
+              Artigos
+            </Link>
+          </li>
+          <li>
+            <Link 
               to="/sobre" 
               className={location.pathname === "/sobre" ? "active" : ""}
             >
@@ -107,6 +118,10 @@ export default function Navbar() {
 
         {/* Área de Autenticação / Controle de Acesso */}
         <div className="navbar-auth">
+          <Link to="/carrinho" className="btn-cart" aria-label="Carrinho">
+            🛒{cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+          </Link>
+
           {user ? (
             <>
               {/* Se for Admin, mostra o botão do Painel Administrativo */}
@@ -146,6 +161,8 @@ export default function Navbar() {
         <div className="mobile-menu">
           <Link to="/" onClick={() => setMenuOpen(false)}>Início</Link>
           <Link to="/servicos" onClick={() => setMenuOpen(false)}>Serviços</Link>
+          <Link to="/artigos" onClick={() => setMenuOpen(false)}>Artigos</Link>
+          <Link to="/carrinho" onClick={() => setMenuOpen(false)}>Carrinho{cartCount > 0 ? ` (${cartCount})` : ""}</Link>
           <Link to="/sobre" onClick={() => setMenuOpen(false)}>Sobre Nós</Link>
           <Link to="/contactos" onClick={() => setMenuOpen(false)}>Contato</Link>
           

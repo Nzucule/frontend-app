@@ -23,7 +23,7 @@ export default function TodosServicos() {
 
   const carregarServicos = async () => {
     try {
-      const response = await axios.get("https://backendprincipal-production.up.railway.app/api/servicos");
+      const response = await axios.get("https://apppest-backend-1.onrender.com/api/servicos");
       setServicos(response.data);
       setLoading(false);
     } catch (error) {
